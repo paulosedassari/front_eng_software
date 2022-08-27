@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto+Slab&display=swap");
+
+.main-login {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto Slab", serif;
+}
+
+.login-imagem {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-imagem > h1 {
+  font-size: 40px;
+  color: #0eaaa6;
+}
+
+.login-input {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-imagem {
+  width: 35vw;
+}
+
+.card-login {
+  width: 65%;
+  height: 65%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  margin-top: 50px;
+  box-shadow: 0 10px 40px #00000056;
+}
+
+.card-login > h1 {
+  color: #0eaaa6;
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.card-login > h2 {
+  color: #0eaaa6;
+  font-size: 20px;
+  margin: 15px 0;
+}
+
+.textfield {
+  width: 80%;
+  display: flex;
+  margin-bottom: 15px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.textfield > input {
+  width: 100%;
+  border: #0eaaa6;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  font-size: 12pt;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textfield > input::placeholder {
+  color: #bcd0cf;
+}
+
+.botao {
+  width: 80%;
+  padding: 10px 0px;
+  margin-top: 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  font-family: 800;
+  color: white;
+  background-color: #0eaaa6;
+}
+
+.botao:hover {
+  background-color: #2ed2cd;
+}
