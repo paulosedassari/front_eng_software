@@ -1,0 +1,27 @@
+.dash-livros {
+  background-color: #17c8c3;
+  color: white;
+  cursor: pointer;
+  padding: 40px;
+  margin: 10px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: #17c8c3;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.dash-alunos {
+  background-color: #17c8c3;
+  color: white;
+  cursor: pointer;
+  padding: 40px;
+  margin: 10px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: #17c8c3;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.dash-livros:hover, .dash-alunos:hover {
+  background-color: #39d2cd;
+}

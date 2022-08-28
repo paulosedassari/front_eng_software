@@ -1,20 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-// body {
-//   background-color: #48D1CC;
-// }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
-// .container {
-//   width: 60%;
-//   height: 80vh;
-//   background-color: white;
-//   margin: 0 auto;
-//   display: grid;
-//   grid-template-areas: "login_dados";
-//   grid-template-columns: auto;
-//   grid-template-rows: auto;
-//   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-// }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-  margin: 0;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
 }
+
