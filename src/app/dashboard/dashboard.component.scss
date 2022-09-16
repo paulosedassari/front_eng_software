@@ -1,27 +1,11 @@
-.dash-livros {
-  background-color: #e15c27;
-  color: white;
-  cursor: pointer;
-  padding: 40px;
-  margin: 10px;
-  font-size: 20px;
-  border-radius: 15px;
-  border: #17c8c3;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+.toolbar {
+  background-color: #9e2626 !important;
 }
 
-.dash-alunos {
-  background-color: #17c8c3;
+.toolbar_title a, button {
   color: white;
-  cursor: pointer;
-  padding: 40px;
-  margin: 10px;
-  font-size: 20px;
-  border-radius: 15px;
-  border: #17c8c3;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
 
-.dash-livros:hover, .dash-alunos:hover {
-  background-color: #39d2cd;
+.example-spacer {
+  flex: 1 1 auto;
 }

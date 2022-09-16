@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Incluir Usuário</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="usuarioForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input
+        formControlName="nome"
+        class="mat-form_input"
+        matInput
+        placeholder="Placeholder"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Categoria</mat-label>
+      <mat-select formControlName="categoria" placeholder="">
+        <mat-option value="DISPONÍVEL">ALUNO</mat-option>
+        <mat-option value="EMPRESTADO">FUNCIONARIO</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>RA/Matricula</mat-label>
+      <input
+        formControlName="ra"
+        class="mat-form_input"
+        matInput
+        placeholder="RA/Matricula do Usuário"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Data Inclusão</mat-label>
+      <input formControlName="dataInclusao" matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+  <button
+    class="button-dialog-fechar"
+    mat-raised-button
+    mat-dialog-close
+    color="warn"
+  >
+    Fechar
+  </button>
+  <button mat-raised-button color="primary" (click)="adicionarUsuario()">
+    Adicionar
+  </button>
+</div>

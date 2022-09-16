@@ -1,5 +1,7 @@
+import { DialogUserComponent } from './../dialog-user/dialog-user.component';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from './model/Usuario';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-usuarios',
@@ -7,6 +9,12 @@ import { Usuario } from './model/Usuario';
   styleUrls: ['./usuarios.component.scss'],
 })
 export class UsuariosComponent implements OnInit {
+  openDialog() {
+    this.dialog.open(DialogUserComponent, {
+      width: '50%',
+    });
+  }
+
   usuarios: Usuario[] = [
     {
       _id: 1,
@@ -16,9 +24,9 @@ export class UsuariosComponent implements OnInit {
     },
   ];
 
-  displayedColumns = ['id', 'nome', 'categoria', 'ra'];
+  displayedColumns = ['id', 'nome', 'categoria', 'ra', 'dataInclusao'];
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
 }

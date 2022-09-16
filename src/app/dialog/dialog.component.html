@@ -1,0 +1,59 @@
+<h1 mat-dialog-title>Incluir Livro</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="livroForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input
+        formControlName="nome"
+        class="mat-form_input"
+        matInput
+        placeholder="Placeholder"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Editora</mat-label>
+      <input
+        formControlName="editora"
+        class="mat-form_input"
+        matInput
+        placeholder="Placeholder"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status" placeholder="Status do livro">
+        <mat-option value="DISPONÍVEL">DISPONIVEL</mat-option>
+        <mat-option value="EMPRESTADO">EMPRESTADO</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Data Inclusão</mat-label>
+      <input formControlName="dataInclusao" matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>ISPB</mat-label>
+      <input
+        formControlName="ispb"
+        class="mat-form_input"
+        matInput
+        type="number"
+        placeholder="Placeholder"
+      />
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+  <button
+    class="button-dialog-fechar"
+    mat-raised-button
+    mat-dialog-close
+    color="warn"
+  >
+    Fechar
+  </button>
+  <button mat-raised-button color="primary" (click)="adicionarLivro()">Adicionar</button>
+</div>

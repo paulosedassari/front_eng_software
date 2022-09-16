@@ -1,3 +1,4 @@
+import { AuthService } from './login/auth.service';
 import { Component } from '@angular/core';
 
 interface SidenavToggle {
@@ -13,8 +14,18 @@ interface SidenavToggle {
 export class AppComponent {
   title = 'sistema_gerenciador_biblioteca';
 
+  mostrarMenu: boolean = false;
+
   isSidenavCollapsed = false;
   screenWidth = 0;
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.authService.mostrarMenuEmitter.subscribe(
+      (mostrar) => (this.mostrarMenu = mostrar)
+    );
+  }
 
   onToggleSidenav(data: SidenavToggle): void {
     this.screenWidth = data.screenWidth;

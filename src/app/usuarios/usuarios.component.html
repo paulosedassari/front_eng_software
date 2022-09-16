@@ -1,30 +1,42 @@
-<table mat-table [dataSource]="usuarios" class="mat-elevation-z8 efeito">
-  <!-- Position Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>ID</th>
-    <td mat-cell *matCellDef="let element">{{ element.position }}</td>
-  </ng-container>
+<section class="container usuarios">
+  <div class="botao_add_user">
+    <button mat-raised-button color="warn" (click)="openDialog()">
+      Adicionar Usuario
+    </button>
+  </div>
+  <table mat-table [dataSource]="usuarios" class="mat-elevation-z8 efeito">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="nome">
-    <th mat-header-cell *matHeaderCellDef>Nome</th>
-    <td mat-cell *matCellDef="let usuarios">{{ usuarios.nome }}</td>
-  </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let usuarios">{{ usuarios.nome }}</td>
+    </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="categoria">
-    <th mat-header-cell *matHeaderCellDef>Categoria</th>
-    <td mat-cell *matCellDef="let usuarios">{{ usuarios.categoria }}</td>
-  </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef>Categoria</th>
+      <td mat-cell *matCellDef="let usuarios">{{ usuarios.categoria }}</td>
+    </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="ra">
-    <th mat-header-cell *matHeaderCellDef>RA</th>
-    <td mat-cell *matCellDef="let usuarios">{{ usuarios.ra }}</td>
-  </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="ra">
+      <th mat-header-cell *matHeaderCellDef>RA/Matricula</th>
+      <td mat-cell *matCellDef="let usuarios">{{ usuarios.ra }}</td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
-<mat-paginator [length]="100" [pageSize]="10" aria-label="Select page">
-</mat-paginator>
+    <ng-container matColumnDef="dataInclusao">
+      <th mat-header-cell *matHeaderCellDef>Data Inclusão</th>
+      <td mat-cell *matCellDef="let usuarios">{{ usuarios.dataInclusao }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator [length]="100" [pageSize]="10" aria-label="Select page">
+  </mat-paginator>
+</section>

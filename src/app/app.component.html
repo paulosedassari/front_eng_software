@@ -1,6 +1,4 @@
-<!-- <app-login></app-login> -->
-<app-sidenav (onToggleSidenav)="onToggleSidenav($event)"></app-sidenav>
-<app-body
-  [collapsed]="isSidenavCollapsed"
-  [screenWidth]="screenWidth"
-></app-body>
+<div *ngIf="mostrarMenu">
+  <app-dashboard></app-dashboard>
+</div>
+<router-outlet></router-outlet>
