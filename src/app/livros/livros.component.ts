@@ -9,9 +9,11 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./livros.component.scss'],
 })
 export class LivrosComponent implements OnInit {
+  @Input() logado = false;
+
   openDialog() {
     this.dialog.open(DialogComponent, {
-      width: '50%'
+      width: '50%',
     });
   }
 
@@ -106,21 +108,4 @@ export class LivrosComponent implements OnInit {
   constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
-
-  @Input() collapsed = false;
-  @Input() screenWidth = 0;
-
-  getBodyClass(): string {
-    let styleClass = '';
-    if (this.collapsed && this.screenWidth > 768) {
-      styleClass = 'body-trimmed';
-    } else if (
-      this.collapsed &&
-      this.screenWidth <= 768 &&
-      this.screenWidth > 0
-    ) {
-      styleClass = 'body-md-screen';
-    }
-    return styleClass;
-  }
 }

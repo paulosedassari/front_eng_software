@@ -16,6 +16,8 @@ export class AppComponent {
 
   mostrarMenu: boolean = false;
 
+  escondeLogin: boolean = true;
+
   isSidenavCollapsed = false;
   screenWidth = 0;
 
@@ -25,10 +27,14 @@ export class AppComponent {
     this.authService.mostrarMenuEmitter.subscribe(
       (mostrar) => (this.mostrarMenu = mostrar)
     );
+    this.authService.esconderLoginEmitter.subscribe(
+      (esconder) => (this.escondeLogin = esconder)
+    );
   }
 
   onToggleSidenav(data: SidenavToggle): void {
     this.screenWidth = data.screenWidth;
     this.isSidenavCollapsed = data.collapsed;
   }
+
 }
