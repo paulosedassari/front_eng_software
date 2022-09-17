@@ -36,5 +36,4 @@ export class AppComponent {
     this.screenWidth = data.screenWidth;
     this.isSidenavCollapsed = data.collapsed;
   }
-
 }

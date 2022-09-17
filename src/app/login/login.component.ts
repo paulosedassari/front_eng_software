@@ -9,7 +9,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   @Input() usuarioAutenticado = true;
 
   usuario: Usuario = new Usuario();

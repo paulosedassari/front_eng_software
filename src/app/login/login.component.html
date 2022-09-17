@@ -15,13 +15,25 @@
         <h2>Login</h2>
         <div class="textfield">
           <label for="usuairo"></label>
-          <input [(ngModel)]="usuario.nome" type="text" name="usuario" placeholder="Usuario" />
+          <input
+            [(ngModel)]="usuario.nome"
+            type="text"
+            name="usuario"
+            placeholder="Usuario"
+          />
         </div>
         <div class="textfield">
           <label for="senha"></label>
-          <input [(ngModel)]="usuario.senha" type="password" name="senha" placeholder="Senha" />
+          <input
+            [(ngModel)]="usuario.senha"
+            type="password"
+            name="senha"
+            placeholder="Senha"
+          />
         </div>
-        <button class="botao" type="submit" name="action" (click)="logar()">Logar</button>
+        <button class="botao" type="submit" name="action" (click)="logar()">
+          Logar
+        </button>
       </div>
     </div>
   </div>

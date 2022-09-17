@@ -18,7 +18,6 @@ export class AuthService {
   mostrarMenuEmitter = new EventEmitter<boolean>();
   esconderLoginEmitter = new EventEmitter<boolean>();
 
-
   fazerLogin(usuario: Usuario) {
     if (usuario.nome === 'usuario@gmail.com' && usuario.senha === '123456') {
       this.usuarioAutenticado = true;

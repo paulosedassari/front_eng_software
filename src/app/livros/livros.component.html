@@ -5,6 +5,11 @@
     </button>
   </div>
 
+  <mat-form-field appearance="standard">
+    <mat-label>Pesquisar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. João" #input />
+  </mat-form-field>
+
   <div>
     <table mat-table [dataSource]="livros" class="mat-elevation-z8 efeito">
       <!-- Position Column -->
