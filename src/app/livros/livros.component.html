@@ -7,38 +7,61 @@
 
   <mat-form-field appearance="standard">
     <mat-label>Pesquisar</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. João" #input />
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. Os Inovadores"
+      #input
+    />
   </mat-form-field>
 
   <div>
-    <table mat-table [dataSource]="livros" class="mat-elevation-z8 efeito">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 efeito">
       <!-- Position Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+        <td mat-cell *matCellDef="let livros">{{ livros.id }}</td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let livros">{{ livros.nome }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.nome }}</td>
       </ng-container>
 
       <!-- Weight Column -->
       <ng-container matColumnDef="editora">
         <th mat-header-cell *matHeaderCellDef>Editora</th>
-        <td mat-cell *matCellDef="let livros">{{ livros.editora }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.editora }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="data">
+        <th mat-header-cell *matHeaderCellDef>Data Inclusão</th>
+        <td mat-cell *matCellDef="let row">{{ row.data | date }}</td>
       </ng-container>
 
       <!-- Symbol Column -->
       <ng-container matColumnDef="situacao">
         <th mat-header-cell *matHeaderCellDef>Situação</th>
-        <td mat-cell *matCellDef="let livros">{{ livros.situacao }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.situacao }}</td>
       </ng-container>
 
       <ng-container matColumnDef="ispb">
         <th mat-header-cell *matHeaderCellDef>ISPB</th>
-        <td mat-cell *matCellDef="let livros">{{ livros.ispb }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.ispb }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -1,7 +1,9 @@
+import { ApiService } from './../services/api.service';
 import { DialogComponent } from './../dialog/dialog.component';
-import { Component, OnInit, Input } from '@angular/core';
-import { Livro } from './model/Livro';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -12,7 +14,25 @@ import { MatTableDataSource } from '@angular/material/table';
 export class LivrosComponent implements OnInit {
   @Input() logado = false;
 
+  displayedColumns: String[] = [
+    'id',
+    'nome',
+    'editora',
+    'data',
+    'situacao',
+    'ispb',
+    'action'
+  ];
   dataSource!: MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(private dialog: MatDialog, private api: ApiService) {}
+
+  ngOnInit(): void {
+    this.getAllLivros();
+  }
 
   openDialog() {
     this.dialog.open(DialogComponent, {
@@ -20,97 +40,15 @@ export class LivrosComponent implements OnInit {
     });
   }
 
-  livros: Livro[] = [
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'DISPONIVEL',
-      ispb: 1234567,
-    },
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'Disponivel',
-      ispb: 1234567,
-    },
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'Disponivel',
-      ispb: 1234567,
-    },
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'Disponivel',
-      ispb: 1234567,
-    },
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'Disponivel',
-      ispb: 1234567,
-    },
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'Disponivel',
-      ispb: 1234567,
-    },
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'Disponivel',
-      ispb: 1234567,
-    },
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'Disponivel',
-      ispb: 1234567,
-    },
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'Disponivel',
-      ispb: 1234567,
-    },
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'Disponivel',
-      ispb: 1234567,
-    },
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'Disponivel',
-      ispb: 1234567,
-    },
-    {
-      _id: 1,
-      nome: 'Os Inovadores',
-      editora: 'Planeta',
-      situacao: 'Disponivel',
-      ispb: 1234567,
-    },
-  ];
-  displayedColumns = ['id', 'nome', 'editora', 'situacao', 'ispb'];
-
-  constructor(private dialog: MatDialog) {}
-
-  ngOnInit(): void {}
+  getAllLivros() {
+    this.api.getLivro().subscribe({
+      next: (res) => {
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+    });
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

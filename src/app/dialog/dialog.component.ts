@@ -1,3 +1,4 @@
+import { ApiService } from './../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -12,7 +13,8 @@ export class DialogComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private dialogRef: MatDialogRef<DialogComponent>
+    private dialogRef: MatDialogRef<DialogComponent>,
+    private api: ApiService
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +29,15 @@ export class DialogComponent implements OnInit {
 
   adicionarLivro() {
     if (this.livroForm.valid) {
-      alert('Livro Adicionado com Sucesso!');
+      this.api.postLivro(this.livroForm.value).subscribe({
+        next: (res) => {
+          alert('Livro Adicionado com Sucesso!');
+        },
+        error: () => {
+          alert('Erro ao Adicionar Livro!');
+        },
+      });
+
       this.livroForm.reset();
       this.dialogRef.close();
     } else {
