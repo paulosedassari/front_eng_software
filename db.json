@@ -1,44 +1,12 @@
 {
   "listaDeLivros": [
     {
-      "nome": "Harry",
+      "nome": "Código Limpo",
       "editora": "Planeta",
       "dataInclusao": "2022-09-18T03:00:00.000Z",
       "status": "DISPONÍVEL",
-      "ispb": 123456,
-      "id": 1
-    },
-    {
-      "nome": "teste",
-      "editora": "teste1",
-      "dataInclusao": "2022-09-18T03:00:00.000Z",
-      "status": "EMPRESTADO",
-      "ispb": 123456,
+      "isbn": 171819,
       "id": 2
-    },
-    {
-      "nome": "Apple",
-      "editora": "Mundo",
-      "dataInclusao": "2022-09-18T03:00:00.000Z",
-      "status": "DISPONÍVEL",
-      "ispb": 1748,
-      "id": 3
-    },
-    {
-      "nome": "Codificador",
-      "editora": "Código",
-      "dataInclusao": "2022-09-18T03:00:00.000Z",
-      "status": "DISPONÍVEL",
-      "ispb": 777777777,
-      "id": 4
-    },
-    {
-      "nome": "teste 2",
-      "editora": "teste 2",
-      "dataInclusao": "2022-09-18T03:00:00.000Z",
-      "status": "DISPONÍVEL",
-      "ispb": 111111,
-      "id": 5
     }
   ],
   "comments": [

@@ -1,7 +1,7 @@
 import { ApiService } from './../services/api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog',
@@ -10,10 +10,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogComponent implements OnInit {
   livroForm!: FormGroup;
-
+  acaoBotao: string = 'Adicionar';
   constructor(
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<DialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public editarDado: any,
     private api: ApiService
   ) {}
 
@@ -23,25 +24,55 @@ export class DialogComponent implements OnInit {
       editora: ['', Validators.required],
       dataInclusao: ['', Validators.required],
       status: ['', Validators.required],
-      ispb: ['', Validators.required],
+      isbn: ['', Validators.required],
     });
+
+    if (this.editarDado) {
+      this.acaoBotao = 'Salvar';
+      this.livroForm.controls['nome'].setValue(this.editarDado.nome);
+      this.livroForm.controls['editora'].setValue(this.editarDado.editora);
+      this.livroForm.controls['dataInclusao'].setValue(
+        this.editarDado.dataInclusao
+      );
+      this.livroForm.controls['status'].setValue(this.editarDado.status);
+      this.livroForm.controls['isbn'].setValue(this.editarDado.isbn);
+    }
   }
 
   adicionarLivro() {
-    if (this.livroForm.valid) {
-      this.api.postLivro(this.livroForm.value).subscribe({
-        next: (res) => {
-          alert('Livro Adicionado com Sucesso!');
-        },
-        error: () => {
-          alert('Erro ao Adicionar Livro!');
-        },
-      });
+    if (!this.editarDado) {
+      if (this.livroForm.valid) {
+        this.api.postLivro(this.livroForm.value).subscribe({
+          next: (res) => {
+            alert('Livro Adicionado com Sucesso!');
+            this.livroForm.reset();
+            this.dialogRef.close('adicionado');
+          },
+          error: () => {
+            alert('Erro ao Adicionar Livro!');
+          },
+        });
 
-      this.livroForm.reset();
-      this.dialogRef.close();
+        this.livroForm.reset();
+        this.dialogRef.close();
+      } else {
+        alert('Preencha os campos corretamente!');
+      }
     } else {
-      alert('Preencha os campos corretamente!');
+      this.updateLivro();
     }
+  }
+
+  updateLivro() {
+    this.api.putLivro(this.livroForm.value, this.editarDado.id).subscribe({
+      next: (res) => {
+        alert('Livro atualizado com sucesso!');
+        this.livroForm.reset();
+        this.dialogRef.close('atualizado');
+      },
+      error: () => {
+        alert('Erro ao atualizar livro!');
+      },
+    });
   }
 }

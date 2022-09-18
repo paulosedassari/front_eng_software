@@ -18,10 +18,10 @@ export class LivrosComponent implements OnInit {
     'id',
     'nome',
     'editora',
-    'data',
-    'situacao',
-    'ispb',
-    'action'
+    'dataInclusao',
+    'status',
+    'isbn',
+    'action',
   ];
   dataSource!: MatTableDataSource<any>;
 
@@ -35,9 +35,16 @@ export class LivrosComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(DialogComponent, {
-      width: '50%',
-    });
+    this.dialog
+      .open(DialogComponent, {
+        width: '50%',
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'adicionado') {
+          this.getAllLivros();
+        }
+      });
   }
 
   getAllLivros() {
@@ -46,6 +53,32 @@ export class LivrosComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+      },
+    });
+  }
+
+  editarLivro(row: any) {
+    this.dialog
+      .open(DialogComponent, {
+        width: '50%',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'atualizado') {
+          this.getAllLivros();
+        }
+      });
+  }
+
+  deletarLivro(id: number) {
+    this.api.deleteLivro(id).subscribe({
+      next: (res) => {
+        alert('Livro excluído com sucesso!');
+        this.getAllLivros();
+      },
+      error: (res) => {
+        alert('Erro ao excluir Livro!');
       },
     });
   }

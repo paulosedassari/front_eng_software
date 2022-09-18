@@ -34,9 +34,9 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>ISPB</mat-label>
+      <mat-label>ISBN</mat-label>
       <input
-        formControlName="ispb"
+        formControlName="isbn"
         class="mat-form_input"
         matInput
         type="number"
@@ -55,5 +55,5 @@
   >
     Fechar
   </button>
-  <button mat-raised-button color="primary" (click)="adicionarLivro()">Adicionar</button>
+  <button mat-raised-button color="primary" (click)="adicionarLivro()">{{ acaoBotao }}</button>
 </div>

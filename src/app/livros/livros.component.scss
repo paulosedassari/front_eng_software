@@ -2,14 +2,22 @@ table {
   width: 100%;
 }
 
+.input_botao {
+  width: 100% !important;
+  // display: flex;
+  flex-direction: row;
+}
+
 .mat-form-field {
   font-size: 14px;
-  width: 100%;
+  width: 80%;
+  margin-right: 70px;
 }
 
 .botao_add_livro {
   text-align: right;
   margin-bottom: 20px;
+  justify-content: end !important;
 }
 
 .mat-raised-button.mat-warn {
