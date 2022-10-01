@@ -32,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogUserComponent } from './dialog-user/dialog-user.component';
 import { EmprestimoComponent } from './emprestimo/emprestimo.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DialogUserComponent,
     EmprestimoComponent,
     DashboardComponent,
+    DialogDeleteComponent,
   ],
   imports: [
     BrowserModule,

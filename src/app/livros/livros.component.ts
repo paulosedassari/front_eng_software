@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component';
 
 @Component({
   selector: 'app-livros',
@@ -74,11 +75,7 @@ export class LivrosComponent implements OnInit {
   deletarLivro(id: number) {
     this.api.deleteLivro(id).subscribe({
       next: (res) => {
-        alert('Livro excluído com sucesso!');
         this.getAllLivros();
-      },
-      error: (res) => {
-        alert('Erro ao excluir Livro!');
       },
     });
   }
@@ -90,5 +87,23 @@ export class LivrosComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  openDialogDelete(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string,
+    id: number
+  ): void {
+    const dialogref = this.dialog.open(DialogDeleteComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+
+    dialogref.afterClosed().subscribe((result) => {
+      if (result === true) {
+        this.deletarLivro(id);
+      }
+    });
   }
 }

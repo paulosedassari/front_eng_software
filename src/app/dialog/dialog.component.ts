@@ -44,19 +44,13 @@ export class DialogComponent implements OnInit {
       if (this.livroForm.valid) {
         this.api.postLivro(this.livroForm.value).subscribe({
           next: (res) => {
-            alert('Livro Adicionado com Sucesso!');
             this.livroForm.reset();
             this.dialogRef.close('adicionado');
-          },
-          error: () => {
-            alert('Erro ao Adicionar Livro!');
           },
         });
 
         this.livroForm.reset();
         this.dialogRef.close();
-      } else {
-        alert('Preencha os campos corretamente!');
       }
     } else {
       this.updateLivro();
@@ -66,12 +60,8 @@ export class DialogComponent implements OnInit {
   updateLivro() {
     this.api.putLivro(this.livroForm.value, this.editarDado.id).subscribe({
       next: (res) => {
-        alert('Livro atualizado com sucesso!');
         this.livroForm.reset();
         this.dialogRef.close('atualizado');
-      },
-      error: () => {
-        alert('Erro ao atualizar livro!');
       },
     });
   }

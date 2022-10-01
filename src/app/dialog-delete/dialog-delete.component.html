@@ -1,0 +1,15 @@
+<div>
+  <h1 mat-dialog-title>Deletar registro</h1>
+  <div mat-dialog-content>Certeza que deseja deletar o registro?</div>
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false" mat-dialog-close>Não</button>
+    <button
+      mat-raised-button
+      color="warn"
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+    >
+      Sim
+    </button>
+  </div>
+</div>

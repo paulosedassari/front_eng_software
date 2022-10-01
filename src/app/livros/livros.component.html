@@ -67,7 +67,11 @@
           <button mat-icon-button (click)="editarLivro(row)" color="primary">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button (click)="deletarLivro(row.id)" color="warn">
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="openDialogDelete('0ms', '0ms', row.id)"
+          >
             <mat-icon>delete</mat-icon>
           </button>
         </td>

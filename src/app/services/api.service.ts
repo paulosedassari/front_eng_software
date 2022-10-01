@@ -1,6 +1,8 @@
+import { Livro } from './../livros/model/Livro';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { identifierName } from '@angular/compiler';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +10,17 @@ import { identifierName } from '@angular/compiler';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
+
   postLivro(data: any) {
-    return this.http.post<any>('http://localhost:3000/listaDeLivros/', data);
+    return this.http.post<any>(
+      'http://localhost:8080/usuario/incluir/',
+      data
+    );
   }
 
   getLivro() {
@@ -17,7 +28,10 @@ export class ApiService {
   }
 
   putLivro(data: any, id: number) {
-    return this.http.put<any>('http://localhost:3000/listaDeLivros/' + id, data);
+    return this.http.put<any>(
+      'http://localhost:3000/listaDeLivros/' + id,
+      data
+    );
   }
 
   deleteLivro(id: number) {
