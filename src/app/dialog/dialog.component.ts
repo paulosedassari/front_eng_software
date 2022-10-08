@@ -22,7 +22,6 @@ export class DialogComponent implements OnInit {
     this.livroForm = this.formBuilder.group({
       nome: ['', Validators.required],
       editora: ['', Validators.required],
-      dataInclusao: ['', Validators.required],
       status: ['', Validators.required],
       isbn: ['', Validators.required],
     });
@@ -31,9 +30,6 @@ export class DialogComponent implements OnInit {
       this.acaoBotao = 'Salvar';
       this.livroForm.controls['nome'].setValue(this.editarDado.nome);
       this.livroForm.controls['editora'].setValue(this.editarDado.editora);
-      this.livroForm.controls['dataInclusao'].setValue(
-        this.editarDado.dataInclusao
-      );
       this.livroForm.controls['status'].setValue(this.editarDado.status);
       this.livroForm.controls['isbn'].setValue(this.editarDado.isbn);
     }

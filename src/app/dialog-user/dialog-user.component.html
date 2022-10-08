@@ -27,12 +27,6 @@
         placeholder="RA/Matricula do Usuário"
       />
     </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Data Inclusão</mat-label>
-      <input formControlName="dataInclusao" matInput [matDatepicker]="picker" />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
   </form>
 </div>
 
@@ -46,6 +40,6 @@
     Fechar
   </button>
   <button mat-raised-button color="primary" (click)="adicionarUsuario()">
-    Adicionar
+    {{ acaoBotao }}
   </button>
 </div>

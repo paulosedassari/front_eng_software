@@ -17,17 +17,29 @@ export class ApiService {
   };
 
   postLivro(data: any) {
-    return this.http.post<any>(
-      'http://localhost:8080/usuario/incluir/',
-      data
-    );
+    return this.http.post<any>('http://localhost:8080/usuario/incluir/', data, this.httpOptions);
+  }
+
+  postUsuario(data: any) {
+    return this.http.post<any>('http://localhost:8080/usuario/incluir/', data);
   }
 
   getLivro() {
+    return this.http.get<any>('http://localhost:8080/usuario/teste/', this.httpOptions);
+  }
+
+  getUsuarios() {
     return this.http.get<any>('http://localhost:3000/listaDeLivros/');
   }
 
   putLivro(data: any, id: number) {
+    return this.http.put<any>(
+      'http://localhost:3000/listaDeLivros/' + id,
+      data
+    );
+  }
+
+  putUsuario(data: any, id: number) {
     return this.http.put<any>(
       'http://localhost:3000/listaDeLivros/' + id,
       data

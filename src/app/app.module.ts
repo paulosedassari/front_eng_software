@@ -1,6 +1,5 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './login/auth.service';
-import { Usuario } from './usuarios/model/Usuario';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +22,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { BodyComponent } from './body/body.component';
-import { SettingsComponent } from './settings/settings.component';
 import { LivrosComponent } from './livros/livros.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -41,7 +39,6 @@ import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
     SidenavComponent,
     LivrosComponent,
     BodyComponent,
-    SettingsComponent,
     UsuariosComponent,
     DialogComponent,
     DialogUserComponent,

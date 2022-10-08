@@ -1,1 +1,83 @@
-<p>emprestimo works!</p>
+<section class="container livros">
+  <div class="input_botao">
+    <mat-form-field class="find" appearance="standard">
+      <mat-label
+        >Pesquisar Empréstimo<mat-icon>find_in_page</mat-icon></mat-label
+      >
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. João da Silva"
+        #input
+      />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <h1>Empréstimos</h1>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 efeito">
+      <!-- Position Column -->
+      <ng-container matColumnDef="idEmprestimo">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let emprestimo">
+          {{ emprestimo.idEmprestimo }}
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nomeUsuario">
+        <th mat-header-cell *matHeaderCellDef>Nome Usuario</th>
+        <td mat-cell *matCellDef="let emprestimo">
+          {{ emprestimo.nomeUsuario }}
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="catUsuario">
+        <th mat-header-cell *matHeaderCellDef>Categoria Usuario</th>
+        <td mat-cell *matCellDef="let emprestimo">
+          {{ emprestimo.catUsuario }}
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="nomeObra">
+        <th mat-header-cell *matHeaderCellDef>Nome Obra</th>
+        <td mat-cell *matCellDef="let emprestimo">{{ emprestimo.nomeObra }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="editora">
+        <th mat-header-cell *matHeaderCellDef>Editora</th>
+        <td mat-cell *matCellDef="let emprestimo">{{ emprestimo.editora }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="isbn">
+        <th mat-header-cell *matHeaderCellDef>ISBN</th>
+        <td mat-cell *matCellDef="let emprestimo">{{ emprestimo.isbn }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="dataEmprestimo">
+        <th mat-header-cell *matHeaderCellDef>Data Emprestimo</th>
+        <td mat-cell *matCellDef="let emprestimo">
+          {{ emprestimo.dataEmprestimo | date }}
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="dataDevolucao">
+        <th mat-header-cell *matHeaderCellDef>Data Devolucao</th>
+        <td mat-cell *matCellDef="let emprestimo">
+          {{ emprestimo.dataDevolucao | date }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator [length]="100" [pageSize]="10" aria-label="Select page">
+    </mat-paginator>
+  </div>
+</section>

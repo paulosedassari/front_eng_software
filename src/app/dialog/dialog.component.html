@@ -28,12 +28,6 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Data Inclusão</mat-label>
-      <input formControlName="dataInclusao" matInput [matDatepicker]="picker" />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
       <mat-label>ISBN</mat-label>
       <input
         formControlName="isbn"
@@ -55,5 +49,7 @@
   >
     Fechar
   </button>
-  <button mat-raised-button color="primary" (click)="adicionarLivro()">{{ acaoBotao }}</button>
+  <button mat-raised-button color="primary" (click)="adicionarLivro()">
+    {{ acaoBotao }}
+  </button>
 </div>

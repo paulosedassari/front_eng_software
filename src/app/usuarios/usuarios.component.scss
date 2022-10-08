@@ -1,11 +1,22 @@
 table {
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.input_botao {
+  width: 100% !important;
+  flex-direction: row;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 80%;
+  margin-right: 70px;
 }
 
 .botao_add_user {
   text-align: right;
   margin-bottom: 20px;
+  justify-content: end !important;
 }
 
 .mat-raised-button.mat-warn {

@@ -1,42 +1,69 @@
-<section class="container usuarios">
-  <div class="botao_add_user">
-    <button mat-raised-button color="warn" (click)="openDialog()">
-      Adicionar Usuario
+<section class="container">
+  <div class="input_botao">
+    <mat-form-field class="find" appearance="standard">
+      <mat-label>Pesquisar Usuário<mat-icon>find_in_page</mat-icon></mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. João da Silva"
+        #input
+      />
+    </mat-form-field>
+    <button
+      class="botao_add_user"
+      mat-raised-button
+      color="warn"
+      (click)="openDialog()"
+    >
+      Adicionar Usuário
     </button>
   </div>
-  <table mat-table [dataSource]="usuarios" class="mat-elevation-z8 efeito">
-    <!-- Position Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
-    </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="nome">
-      <th mat-header-cell *matHeaderCellDef>Nome</th>
-      <td mat-cell *matCellDef="let usuarios">{{ usuarios.nome }}</td>
-    </ng-container>
+  <div>
+    <h1>Tabela de Usuários</h1>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 efeito">
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let usuarios">{{ usuarios.id }}</td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let usuarios">{{ usuarios.nome }}</td>
+      </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="categoria">
-      <th mat-header-cell *matHeaderCellDef>Categoria</th>
-      <td mat-cell *matCellDef="let usuarios">{{ usuarios.categoria }}</td>
-    </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="categoria">
+        <th mat-header-cell *matHeaderCellDef>Categoria</th>
+        <td mat-cell *matCellDef="let usuarios">{{ usuarios.categoria }}</td>
+      </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="ra">
-      <th mat-header-cell *matHeaderCellDef>RA/Matricula</th>
-      <td mat-cell *matCellDef="let usuarios">{{ usuarios.ra }}</td>
-    </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="ra">
+        <th mat-header-cell *matHeaderCellDef>RA/Matricula</th>
+        <td mat-cell *matCellDef="let usuarios">{{ usuarios.ra }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="dataInclusao">
-      <th mat-header-cell *matHeaderCellDef>Data Inclusão</th>
-      <td mat-cell *matCellDef="let usuarios">{{ usuarios.dataInclusao }}</td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-  <mat-paginator [length]="100" [pageSize]="10" aria-label="Select page">
-  </mat-paginator>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="editarUsuario(row)" color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="openDialogDelete('0ms', '0ms', row.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator [length]="100" [pageSize]="10" aria-label="Select page">
+    </mat-paginator>
+  </div>
 </section>

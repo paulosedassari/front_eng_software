@@ -10,8 +10,8 @@ export const navbarData = [
     label: 'Usuários',
   },
   {
-    routeLink: 'settings',
-    icon: 'fal fa-cog',
-    label: 'Settings',
+    routeLink: 'emprestimos',
+    icon: 'fal fa-file-spreadsheet',
+    label: 'Empréstimos',
   },
 ];
