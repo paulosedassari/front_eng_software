@@ -14,4 +14,9 @@ export const navbarData = [
     icon: 'fal fa-file-spreadsheet',
     label: 'Empréstimos',
   },
+  {
+    routeLink: 'sair',
+    icon: 'fal fa-arrow-right',
+    label: 'Sair',
+  },
 ];
