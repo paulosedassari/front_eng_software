@@ -1,0 +1,5 @@
+enum CONDICAO {
+  ALUNO,
+  PROFESSOR,
+  FUNCIONARIO
+}

@@ -16,6 +16,11 @@ export class UsuariosComponent implements OnInit {
   displayedColumns: String[] = [
     'id',
     'nome',
+    'cpf',
+    'dtNascimento',
+    'email',
+    'dtInclusao',
+    'endereco',
     'categoria',
     'ra',
     'action',

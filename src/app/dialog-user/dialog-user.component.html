@@ -2,15 +2,48 @@
 
 <div mat-dialog-content>
   <form [formGroup]="usuarioForm">
+
     <mat-form-field appearance="outline">
-      <mat-label>Nome</mat-label>
+      <mat-label>Nome Completo</mat-label>
       <input
         formControlName="nome"
         class="mat-form_input"
         matInput
         placeholder="Placeholder"
       />
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Campo Nome é <strong>obrigatório</strong>
+      </mat-error>
     </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>CPF</mat-label>
+      <input
+        formControlName="cpf"
+        class="mat-form_input"
+        matInput
+        placeholder="Placeholder"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="dtNascimento" appearance="outline">
+      <mat-label>Data Nascimento</mat-label>
+      <input formControlName="dtNascimento" matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Campo Email é <strong>obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>Categoria</mat-label>
       <mat-select formControlName="categoria" placeholder="">
@@ -18,6 +51,9 @@
         <mat-option value="EMPRESTADO">FUNCIONARIO</mat-option>
       </mat-select>
     </mat-form-field>
+
+
+
     <mat-form-field appearance="outline">
       <mat-label>RA/Matricula</mat-label>
       <input

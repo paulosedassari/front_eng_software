@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from './../services/api.service';
 
@@ -16,6 +16,9 @@ export class DialogUserComponent implements OnInit {
   // ra: string = '';
   // dataInclusao: Date = new Date();
 
+  // nomeFormControl = new FormControl('', [Validators.required]);
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+
   usuarioForm!: FormGroup;
   acaoBotao: string = 'Adicionar';
 
@@ -28,7 +31,7 @@ export class DialogUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuarioForm = this.formBuilder.group({
-      nome: ['', Validators.required],
+      nome: new FormControl('', [Validators.required]),
       categoria: ['', Validators.required],
       ra: ['', Validators.required],
     });
