@@ -8,4 +8,40 @@ mat-form-field {
 
 .dtNascimento {
   width: 30%;
+  margin-right: 15px;
+}
+
+.cpf {
+  width: 30%;
+  margin-right: 15px;
+}
+
+.categoria {
+  width: 30%;
+}
+
+.cpf_dtnasc_cat {
+  flex-direction: row;
+}
+
+.cep_input_uf {
+  width: 30%;
+  margin-right: 5px;
+}
+
+.bairro_numero {
+  width: 30%;
+  margin-right: 15px;
+}
+
+.uf {
+  margin-left: 15px;
+}
+
+.cidade {
+  margin-left: 15px;
+}
+
+.cep {
+  flex-direction: row;
 }

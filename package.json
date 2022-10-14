@@ -23,6 +23,7 @@
     "@ionic/storage": "^3.0.6",
     "angular-moment": "^1.3.0",
     "bootstrap": "^5.2.1",
+    "correios-brasil": "^3.0.2",
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.29.4",
     "ngx-bootstrap": "^9.0.0",

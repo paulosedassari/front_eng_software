@@ -49,4 +49,8 @@ export class ApiService {
   deleteLivro(id: number) {
     return this.http.delete<any>('http://localhost:3000/listaDeLivros/' + id);
   }
+
+  consultaCep(cep: number) {
+    return this.http.get<any>('https://viacep.com.br/ws/' + cep + '/json/')
+  }
 }

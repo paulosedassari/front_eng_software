@@ -1,5 +1,11 @@
+import { Endereco } from './../usuarios/model/Endereco';
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormControl,
+} from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from './../services/api.service';
 
@@ -16,11 +22,23 @@ export class DialogUserComponent implements OnInit {
   // ra: string = '';
   // dataInclusao: Date = new Date();
 
-  // nomeFormControl = new FormControl('', [Validators.required]);
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  nomeFormControl = new FormControl('', [Validators.required]);
+  cpfFormControl = new FormControl('', [Validators.required]);
+  dtNascimentoFormControl = new FormControl('', [Validators.required]);
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+  categoriaFormControl = new FormControl('', [Validators.required]);
+  raFormControl = new FormControl('', [Validators.required]);
 
   usuarioForm!: FormGroup;
   acaoBotao: string = 'Adicionar';
+  cep: number = 0;
+  logradouro: string = '';
+  bairro: string = '';
+  localidade: string = '';
+  uf: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,8 +50,17 @@ export class DialogUserComponent implements OnInit {
   ngOnInit(): void {
     this.usuarioForm = this.formBuilder.group({
       nome: new FormControl('', [Validators.required]),
-      categoria: ['', Validators.required],
-      ra: ['', Validators.required],
+      cpf: new FormControl('', [Validators.required]),
+      dtNascimento: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      categoria: new FormControl('', [Validators.required]),
+      ra: new FormControl('', [Validators.required]),
+      cep: new FormControl('', []),
+      logradouro: new FormControl('', [Validators.required]),
+      localidade: new FormControl('', [Validators.required]),
+      bairro: new FormControl('', [Validators.required]),
+      uf: new FormControl('', [Validators.required]),
+      numero: new FormControl('', [Validators.required]),
     });
 
     if (this.editarDado) {
@@ -44,6 +71,17 @@ export class DialogUserComponent implements OnInit {
       );
       this.usuarioForm.controls['ra'].setValue(this.editarDado.ra);
     }
+  }
+
+  buscaCep() {
+    this.api.consultaCep(this.usuarioForm.value.cep).subscribe({
+      next: (res) => {
+        this.logradouro = res.logradouro;
+        this.bairro = res.bairro;
+        this.localidade = res.localidade;
+        this.uf = res.uf;
+      },
+    });
   }
 
   adicionarUsuario() {
@@ -62,13 +100,6 @@ export class DialogUserComponent implements OnInit {
         this.updateUsuario();
       }
     }
-    // const valorEmitir = {
-    //   nome: this.nome,
-    //   categoria: this.categoria,
-    //   ra: this.ra,
-    //   dataInclusao: this.dataInclusao,
-    // };
-    // this.aoAdicionar.emit(valorEmitir);
   }
 
   updateUsuario() {

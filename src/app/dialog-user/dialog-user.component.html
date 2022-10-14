@@ -2,65 +2,172 @@
 
 <div mat-dialog-content>
   <form [formGroup]="usuarioForm">
-
     <mat-form-field appearance="outline">
       <mat-label>Nome Completo</mat-label>
       <input
         formControlName="nome"
         class="mat-form_input"
         matInput
+        id="nome"
         placeholder="Placeholder"
       />
-      <mat-error *ngIf="emailFormControl.hasError('required')">
-        Campo Nome é <strong>obrigatório</strong>
+      <mat-error *ngIf="nomeFormControl.hasError('required')">
+        Nome é <strong>obrigatório</strong>
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field class="cpf_dtnasc_cat cpf" appearance="outline">
       <mat-label>CPF</mat-label>
       <input
         formControlName="cpf"
         class="mat-form_input"
         matInput
+        id="cpf"
         placeholder="Placeholder"
       />
+      <mat-error *ngIf="cpfFormControl.hasError('required')">
+        CPF é <strong>obrigatório</strong>
+      </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="dtNascimento" appearance="outline">
+    <mat-form-field class="cpf_dtnasc_cat dtNascimento" appearance="outline">
       <mat-label>Data Nascimento</mat-label>
       <input formControlName="dtNascimento" matInput [matDatepicker]="picker" />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="dtNascimentoFormControl.hasError('required')">
+        Data Nascimento é <strong>obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="cpf_dtnasc_cat categoria" appearance="outline">
+      <mat-label>Categoria</mat-label>
+      <mat-select formControlName="categoria" placeholder="">
+        <mat-option value="ALUNO">ALUNO</mat-option>
+        <mat-option value="FUNCIONARIO">FUNCIONARIO</mat-option>
+      </mat-select>
+      <mat-error *ngIf="categoriaFormControl.hasError('required')">
+        Categoria é <strong>obrigatório</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-        Please enter a valid email address
+      <input
+        type="email"
+        matInput
+        formControlName="email"
+        class="mat-form_input"
+        id="email"
+        [formControl]="emailFormControl"
+        placeholder="Ex. pat@example.com"
+      />
+      <mat-error
+        *ngIf="
+          emailFormControl.hasError('email') &&
+          !emailFormControl.hasError('required')
+        "
+      >
+        Por favor, entre com um email válido
       </mat-error>
       <mat-error *ngIf="emailFormControl.hasError('required')">
-        Campo Email é <strong>obrigatório</strong>
+        Email é <strong>obrigatório</strong>
       </mat-error>
     </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Categoria</mat-label>
-      <mat-select formControlName="categoria" placeholder="">
-        <mat-option value="DISPONÍVEL">ALUNO</mat-option>
-        <mat-option value="EMPRESTADO">FUNCIONARIO</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-
 
     <mat-form-field appearance="outline">
       <mat-label>RA/Matricula</mat-label>
       <input
+        type="number"
         formControlName="ra"
         class="mat-form_input"
+        id="ra"
         matInput
         placeholder="RA/Matricula do Usuário"
+      />
+      <mat-error *ngIf="raFormControl.hasError('required')">
+        RA é <strong>obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="cep_input_uf cep" appearance="outline">
+      <mat-label for="cep">CEP</mat-label>
+      <div>
+        <input
+          type="number"
+          formControlName="cep"
+          class="mat-form_input"
+          id="cep"
+          matInput
+          placeholder="CEP"
+          [(ngModel)]="cep"
+        />
+      </div>
+    </mat-form-field>
+    <i
+      class="cep"
+      (click)="buscaCep()"
+      style="cursor: pointer"
+      class="fa fa-search"
+    ></i>
+
+    <mat-form-field class="cep_input_uf uf" appearance="outline">
+      <mat-label>UF</mat-label>
+      <input
+        formControlName="uf"
+        class="mat-form_input"
+        matInput
+        id="uf"
+        placeholder="UF"
+        [(ngModel)]="uf"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="cep_input_uf cidade" appearance="outline">
+      <mat-label>Cidade</mat-label>
+      <input
+        formControlName="localidade"
+        class="mat-form_input"
+        matInput
+        id="localidade"
+        placeholder="Cidade"
+        [(ngModel)]="localidade"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Logradouro</mat-label>
+      <input
+        formControlName="logradouro"
+        class="mat-form_input"
+        matInput
+        id="logradouro"
+        placeholder="Logradouro"
+        [(ngModel)]="logradouro"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="bairro_numero bairro" appearance="outline">
+      <mat-label>Bairro</mat-label>
+      <input
+        formControlName="bairro"
+        class="mat-form_input"
+        matInput
+        id="bairro"
+        placeholder="Bairro"
+        [(ngModel)]="bairro"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="bairro_numero numero" appearance="outline">
+      <mat-label>Número</mat-label>
+      <input
+      type="number"
+        formControlName="numero"
+        class="mat-form_input"
+        matInput
+        id="numero"
+        placeholder="Número"
       />
     </mat-form-field>
   </form>

@@ -51,7 +51,6 @@ export class LivrosComponent implements OnInit {
   getAllLivros() {
     this.api.getLivro().subscribe({
       next: (res) => {
-        console.log(res);
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
