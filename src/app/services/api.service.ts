@@ -29,7 +29,7 @@ export class ApiService {
   }
 
   getUsuarios() {
-    return this.http.get<any>('http://localhost:3000/listaDeLivros/');
+    return this.http.get<any>('http://localhost:8080/usuario/buscarTodos/');
   }
 
   putLivro(data: any, id: number) {

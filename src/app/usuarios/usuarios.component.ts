@@ -14,13 +14,10 @@ import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component'
 })
 export class UsuariosComponent implements OnInit {
   displayedColumns: String[] = [
-    'id',
+    'idUsuario',
     'nome',
-    'cpf',
-    'dtNascimento',
     'email',
     'dtInclusao',
-    'endereco',
     'categoria',
     'ra',
     'action',
@@ -61,6 +58,7 @@ export class UsuariosComponent implements OnInit {
   getAllUsuarios() {
     this.api.getUsuarios().subscribe({
       next: (res) => {
+        console.log(res)
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

@@ -59,23 +59,30 @@
         formControlName="email"
         class="mat-form_input"
         id="email"
-        [formControl]="emailFormControl"
         placeholder="Ex. pat@example.com"
       />
-      <mat-error
-        *ngIf="
-          emailFormControl.hasError('email') &&
-          !emailFormControl.hasError('required')
-        "
-      >
-        Por favor, entre com um email válido
-      </mat-error>
       <mat-error *ngIf="emailFormControl.hasError('required')">
         Email é <strong>obrigatório</strong>
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Telefone</mat-label>
+      <input
+        type="tel"
+        id="telefone"
+        formControlName="telefone"
+        class="mat-form_input"
+        matInput
+        placeholder="(14)996123456"
+      />
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error *ngIf="raFormControl.hasError('required')">
+        DDD+ Telefone é <strong>obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width ra" appearance="outline">
       <mat-label>RA/Matricula</mat-label>
       <input
         type="number"
@@ -162,7 +169,7 @@
     <mat-form-field class="bairro_numero numero" appearance="outline">
       <mat-label>Número</mat-label>
       <input
-      type="number"
+        type="number"
         formControlName="numero"
         class="mat-form_input"
         matInput

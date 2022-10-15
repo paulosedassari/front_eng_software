@@ -22,28 +22,14 @@
   <div>
     <h1>Tabela de Usuários</h1>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 efeito">
-
-      <!-- Position Column -->
-      <ng-container matColumnDef="id">
+      <ng-container matColumnDef="idUsuario">
         <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let usuarios">{{ usuarios.id }}</td>
+        <td mat-cell *matCellDef="let usuarios">{{ usuarios.idUsuario }}</td>
       </ng-container>
 
-      <!-- Name Column -->
       <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef>Nome</th>
         <td mat-cell *matCellDef="let usuarios">{{ usuarios.nome }}</td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="cpf">
-        <th mat-header-cell *matHeaderCellDef>CPF</th>
-        <td mat-cell *matCellDef="let usuarios">{{ usuarios.cpf }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="dtNascimento">
-        <th mat-header-cell *matHeaderCellDef>Data Nascimento</th>
-        <td mat-cell *matCellDef="let usuarios">{{ usuarios.dtNascimento }}</td>
       </ng-container>
 
       <ng-container matColumnDef="email">
@@ -56,17 +42,11 @@
         <td mat-cell *matCellDef="let usuarios">{{ usuarios.dtInclusao }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="endereco">
-        <th mat-header-cell *matHeaderCellDef>Endereço</th>
-        <td mat-cell *matCellDef="let usuarios">{{ usuarios.endereco }}</td>
-      </ng-container>
-
       <ng-container matColumnDef="categoria">
         <th mat-header-cell *matHeaderCellDef>Categoria</th>
         <td mat-cell *matCellDef="let usuarios">{{ usuarios.categoria }}</td>
       </ng-container>
 
-      <!-- Symbol Column -->
       <ng-container matColumnDef="ra">
         <th mat-header-cell *matHeaderCellDef>RA/Matricula</th>
         <td mat-cell *matCellDef="let usuarios">{{ usuarios.ra }}</td>

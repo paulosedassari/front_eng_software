@@ -25,10 +25,7 @@ export class DialogUserComponent implements OnInit {
   nomeFormControl = new FormControl('', [Validators.required]);
   cpfFormControl = new FormControl('', [Validators.required]);
   dtNascimentoFormControl = new FormControl('', [Validators.required]);
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  emailFormControl = new FormControl('', [Validators.required]);
   categoriaFormControl = new FormControl('', [Validators.required]);
   raFormControl = new FormControl('', [Validators.required]);
 
@@ -52,8 +49,9 @@ export class DialogUserComponent implements OnInit {
       nome: new FormControl('', [Validators.required]),
       cpf: new FormControl('', [Validators.required]),
       dtNascimento: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required]),
       categoria: new FormControl('', [Validators.required]),
+      telefone: new FormControl('', [Validators.required]),
       ra: new FormControl('', [Validators.required]),
       cep: new FormControl('', []),
       logradouro: new FormControl('', [Validators.required]),
@@ -87,6 +85,7 @@ export class DialogUserComponent implements OnInit {
   adicionarUsuario() {
     if (!this.editarDado) {
       if (this.usuarioForm.valid) {
+        console.log(this.usuarioForm.value)
         this.api.postUsuario(this.usuarioForm.value).subscribe({
           next: (res) => {
             this.usuarioForm.reset();
