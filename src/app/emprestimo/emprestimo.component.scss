@@ -2,8 +2,23 @@ table {
   width: 100%;
 }
 
+.input_botao {
+  width: 100% !important;
+  flex-direction: row;
+}
+
 .mat-form-field {
   font-size: 14px;
-  width: 100%;
+  width: 78.3%;
   margin-right: 70px;
+}
+
+.botao_add_livro {
+  text-align: right;
+  margin-bottom: 20px;
+  justify-content: end !important;
+}
+
+.mat-raised-button.mat-warn {
+  background-color: #bb2a2a;
 }

@@ -1,55 +1,98 @@
-<h1 mat-dialog-title>Incluir Livro</h1>
+<section>
+  <div class="titulo_table_livro">
+    <h1>Incluir Novo Livro</h1>
+  </div>
 
-<div mat-dialog-content>
-  <form [formGroup]="livroForm">
-    <mat-form-field appearance="outline">
-      <mat-label>Nome</mat-label>
-      <input
-        formControlName="nome"
-        class="mat-form_input"
-        matInput
-        placeholder="Placeholder"
-      />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Editora</mat-label>
-      <input
-        formControlName="editora"
-        class="mat-form_input"
-        matInput
-        placeholder="Placeholder"
-      />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Status</mat-label>
-      <mat-select formControlName="status" placeholder="Status do livro">
-        <mat-option value="DISPONÍVEL">DISPONIVEL</mat-option>
-        <mat-option value="EMPRESTADO">EMPRESTADO</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>ISBN</mat-label>
-      <input
-        formControlName="isbn"
-        class="mat-form_input"
-        matInput
-        type="number"
-        placeholder="Placeholder"
-      />
-    </mat-form-field>
-  </form>
-</div>
+  <div mat-dialog-content>
+    <form [formGroup]="livroForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input
+          formControlName="nome"
+          class="mat-form_input"
+          matInput
+          placeholder="ex.: Os Inovadores"
+        />
+        <mat-error *ngIf="nomeFormControl.hasError('required')">
+          Nome é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
 
-<div mat-dialog-action [align]="'end'">
-  <button
-    class="button-dialog-fechar"
-    mat-raised-button
-    mat-dialog-close
-    color="warn"
-  >
-    Fechar
-  </button>
-  <button mat-raised-button color="primary" (click)="adicionarLivro()">
-    {{ acaoBotao }}
-  </button>
-</div>
+      <mat-form-field appearance="outline">
+        <mat-label>Editora</mat-label>
+        <input
+          formControlName="editora"
+          class="mat-form_input"
+          matInput
+          placeholder="ex.: Planeta"
+        />
+        <mat-error *ngIf="editoraFormControl.hasError('required')">
+          Editora é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- <mat-form-field class="dtPub" appearance="outline">
+        <mat-label>Data Publicação</mat-label>
+        <input
+          formControlName="dtPublicacao"
+          matInput
+          [matDatepicker]="picker"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="dtPublicacaoFormControl.hasError('required')">
+          Data Publicação é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field> -->
+
+      <mat-form-field class="dtPub" appearance="outline">
+        <mat-label>Data Publicação</mat-label>
+        <input formControlName="dtPublicacao" matInput [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="dtPublicacaoFormControl.hasError('required')">
+          Data Publicação é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status" placeholder="Status do livro">
+          <mat-option value="DISPONIVEL">DISPONIVEL</mat-option>
+          <mat-option value="EMPRESTADO">EMPRESTADO</mat-option>
+        </mat-select>
+        <mat-error *ngIf="statusFormControl.hasError('required')">
+          Status é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>ISBN/ISSN</mat-label>
+        <input
+          formControlName="isbn"
+          class="mat-form_input"
+          matInput
+          type="number"
+          placeholder="ex.: 1918172345"
+        />
+        <mat-error *ngIf="isbnFormControl.hasError('required')">
+          ISBN/ISSN é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div mat-dialog-action [align]="'end'">
+    <button
+      class="button-dialog-fechar"
+      mat-raised-button
+      mat-dialog-close
+      color="warn"
+    >
+      Fechar
+    </button>
+    <button mat-raised-button color="primary" (click)="adicionarLivro()">
+      {{ acaoBotao }}
+    </button>
+  </div>
+</section>

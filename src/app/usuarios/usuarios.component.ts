@@ -15,9 +15,9 @@ import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component'
 export class UsuariosComponent implements OnInit {
   displayedColumns: String[] = [
     'idUsuario',
-    'nome',
+    'nomeUsuario',
     'email',
-    'dtInclusao',
+    'dtInclusaoUsuario',
     'categoria',
     'ra',
     'action',

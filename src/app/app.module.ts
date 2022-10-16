@@ -31,6 +31,7 @@ import { DialogUserComponent } from './dialog-user/dialog-user.component';
 import { EmprestimoComponent } from './emprestimo/emprestimo.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
+import { DialogEmprestComponent } from './dialog-emprest/dialog-emprest.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
     EmprestimoComponent,
     DashboardComponent,
     DialogDeleteComponent,
+    DialogEmprestComponent,
   ],
   imports: [
     BrowserModule,

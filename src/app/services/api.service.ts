@@ -17,19 +17,30 @@ export class ApiService {
   };
 
   postLivro(data: any) {
-    return this.http.post<any>('http://localhost:8080/usuario/incluir/', data, this.httpOptions);
+    return this.http.post<any>('http://localhost:8080/acervo/incluir/', data);
   }
 
   postUsuario(data: any) {
     return this.http.post<any>('http://localhost:8080/usuario/incluir/', data);
   }
 
+  postEmprestimo(data: any) {
+    return this.http.post<any>(
+      'http://localhost:8080/emprestimo/incluir/',
+      data
+    );
+  }
+
   getLivro() {
-    return this.http.get<any>('http://localhost:8080/usuario/teste/', this.httpOptions);
+    return this.http.get<any>('http://localhost:8080/acervo/buscarTodos/');
   }
 
   getUsuarios() {
     return this.http.get<any>('http://localhost:8080/usuario/buscarTodos/');
+  }
+
+  getEmprestimos() {
+    return this.http.get<any>('http://localhost:8080/emprestimo/buscarTodos/');
   }
 
   putLivro(data: any, id: number) {
@@ -51,6 +62,6 @@ export class ApiService {
   }
 
   consultaCep(cep: number) {
-    return this.http.get<any>('https://viacep.com.br/ws/' + cep + '/json/')
+    return this.http.get<any>('https://viacep.com.br/ws/' + cep + '/json/');
   }
 }

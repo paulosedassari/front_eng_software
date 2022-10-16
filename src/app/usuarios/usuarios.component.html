@@ -27,9 +27,9 @@
         <td mat-cell *matCellDef="let usuarios">{{ usuarios.idUsuario }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="nome">
+      <ng-container matColumnDef="nomeUsuario">
         <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let usuarios">{{ usuarios.nome }}</td>
+        <td mat-cell *matCellDef="let usuarios">{{ usuarios.nomeUsuario }}</td>
       </ng-container>
 
       <ng-container matColumnDef="email">
@@ -37,9 +37,9 @@
         <td mat-cell *matCellDef="let usuarios">{{ usuarios.email }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="dtInclusao">
+      <ng-container matColumnDef="dtInclusaoUsuario">
         <th mat-header-cell *matHeaderCellDef>Data Inclusão</th>
-        <td mat-cell *matCellDef="let usuarios">{{ usuarios.dtInclusao }}</td>
+        <td mat-cell *matCellDef="let usuarios">{{ usuarios.dtInclusaoUsuario | date  }}</td>
       </ng-container>
 
       <ng-container matColumnDef="categoria">

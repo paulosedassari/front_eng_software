@@ -23,15 +23,15 @@
     <h1>Tabela de Livros</h1>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 efeito">
       <!-- Position Column -->
-      <ng-container matColumnDef="id">
+      <ng-container matColumnDef="idObra">
         <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let livros">{{ livros.id }}</td>
+        <td mat-cell *matCellDef="let livros">{{ livros.idObra }}</td>
       </ng-container>
 
       <!-- Name Column -->
-      <ng-container matColumnDef="nome">
+      <ng-container matColumnDef="nomeObra">
         <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let row">{{ row.nome }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.nomeObra }}</td>
       </ng-container>
 
       <!-- Weight Column -->
@@ -41,9 +41,9 @@
       </ng-container>
 
       <!-- Weight Column -->
-      <ng-container matColumnDef="dataInclusao">
+      <ng-container matColumnDef="dtInclusaoObra">
         <th mat-header-cell *matHeaderCellDef>Data Inclusão</th>
-        <td mat-cell *matCellDef="let row">{{ row.dataInclusao | date }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.dtInclusaoObra | date }}</td>
       </ng-container>
 
       <!-- Symbol Column -->

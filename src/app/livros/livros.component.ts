@@ -16,10 +16,10 @@ export class LivrosComponent implements OnInit {
   @Input() logado = false;
 
   displayedColumns: String[] = [
-    'id',
-    'nome',
+    'idObra',
+    'nomeObra',
     'editora',
-    'dataInclusao',
+    'dtInclusaoObra',
     'status',
     'isbn',
     'action',

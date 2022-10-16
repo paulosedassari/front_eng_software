@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Incluir Novo Empréstimo</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="emprestimoForm">
+    <mat-form-field class="example-full-width ra" appearance="outline">
+      <mat-label>RA/Matricula do Usuário</mat-label>
+      <input
+        type="number"
+        formControlName="ra"
+        class="mat-form_input"
+        id="ra"
+        matInput
+        placeholder="RA/Matricula do Usuário"
+      />
+      <mat-error *ngIf="raFormControl.hasError('required')">
+        RA/Matricula é <strong>obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>ISBN/ISSN da Obra</mat-label>
+      <input
+        formControlName="isbn"
+        class="mat-form_input"
+        matInput
+        type="number"
+        placeholder="ex.: 1918172345"
+      />
+      <mat-error *ngIf="isbnFormControl.hasError('required')">
+        ISBN/ISSN é <strong>obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+  <button
+    class="button-dialog-fechar"
+    mat-raised-button
+    mat-dialog-close
+    color="warn"
+  >
+    Fechar
+  </button>
+  <button mat-raised-button color="primary" (click)="adicionarEmprestimo()">
+    {{ acaoBotao }}
+  </button>
+</div>

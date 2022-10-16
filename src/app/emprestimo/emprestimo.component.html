@@ -11,6 +11,14 @@
         #input
       />
     </mat-form-field>
+    <button
+      mat-raised-button
+      class="botao_add_livro"
+      color="warn"
+      (click)="openDialog()"
+    >
+      Adicionar Empréstimo
+    </button>
   </div>
 
   <div>
@@ -26,7 +34,7 @@
 
       <!-- Name Column -->
       <ng-container matColumnDef="nomeUsuario">
-        <th mat-header-cell *matHeaderCellDef>Nome Usuario</th>
+        <th mat-header-cell *matHeaderCellDef>Nome Usuário</th>
         <td mat-cell *matCellDef="let emprestimo">
           {{ emprestimo.nomeUsuario }}
         </td>
@@ -59,18 +67,18 @@
       </ng-container>
 
       <!-- Weight Column -->
-      <ng-container matColumnDef="dataEmprestimo">
-        <th mat-header-cell *matHeaderCellDef>Data Emprestimo</th>
+      <ng-container matColumnDef="dtEmprestimo">
+        <th mat-header-cell *matHeaderCellDef>Data Empréstimo</th>
         <td mat-cell *matCellDef="let emprestimo">
-          {{ emprestimo.dataEmprestimo | date }}
+          {{ emprestimo.dtEmprestimo | date }}
         </td>
       </ng-container>
 
       <!-- Weight Column -->
-      <ng-container matColumnDef="dataDevolucao">
-        <th mat-header-cell *matHeaderCellDef>Data Devolucao</th>
+      <ng-container matColumnDef="dtDevolucao">
+        <th mat-header-cell *matHeaderCellDef>Data Devolução</th>
         <td mat-cell *matCellDef="let emprestimo">
-          {{ emprestimo.dataDevolucao | date }}
+          {{ emprestimo.dtDevolucao | date }}
         </td>
       </ng-container>
 

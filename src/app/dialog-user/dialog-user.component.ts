@@ -63,7 +63,7 @@ export class DialogUserComponent implements OnInit {
 
     if (this.editarDado) {
       this.acaoBotao = 'Salvar';
-      this.usuarioForm.controls['nome'].setValue(this.editarDado.nome);
+      this.usuarioForm.controls['nome'].setValue(this.editarDado.nomeUsuario);
       this.usuarioForm.controls['categoria'].setValue(
         this.editarDado.categoria
       );
@@ -85,7 +85,6 @@ export class DialogUserComponent implements OnInit {
   adicionarUsuario() {
     if (!this.editarDado) {
       if (this.usuarioForm.valid) {
-        console.log(this.usuarioForm.value)
         this.api.postUsuario(this.usuarioForm.value).subscribe({
           next: (res) => {
             this.usuarioForm.reset();
