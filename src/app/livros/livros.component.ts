@@ -20,6 +20,7 @@ export class LivrosComponent implements OnInit {
     'nomeObra',
     'editora',
     'dtInclusaoObra',
+    'dtPublicacao',
     'status',
     'isbn',
     'action',
@@ -29,7 +30,7 @@ export class LivrosComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private api: ApiService) {}
+  constructor(private dialog: MatDialog, private api: ApiService) { }
 
   ngOnInit(): void {
     this.getAllLivros();
@@ -73,6 +74,7 @@ export class LivrosComponent implements OnInit {
   }
 
   deletarLivro(id: number) {
+    console.log(id)
     this.api.deleteLivro(id).subscribe({
       next: (res) => {
         this.getAllLivros();
@@ -99,7 +101,7 @@ export class LivrosComponent implements OnInit {
       enterAnimationDuration,
       exitAnimationDuration,
     });
-
+    console.log(id)
     dialogref.afterClosed().subscribe((result) => {
       if (result === true) {
         this.deletarLivro(id);

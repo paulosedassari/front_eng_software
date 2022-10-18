@@ -38,6 +38,7 @@ export class DialogComponent implements OnInit {
       this.acaoBotao = 'Salvar';
       this.livroForm.controls['nomeObra'].setValue(this.editarDado.nomeObra);
       this.livroForm.controls['editora'].setValue(this.editarDado.editora);
+      this.livroForm.controls['dtPublicacao'].setValue(this.editarDado.dtPublicacao);
       this.livroForm.controls['status'].setValue(this.editarDado.status);
       this.livroForm.controls['isbn'].setValue(this.editarDado.isbn);
     }
@@ -62,7 +63,7 @@ export class DialogComponent implements OnInit {
   }
 
   updateLivro() {
-    this.api.putLivro(this.livroForm.value, this.editarDado.id).subscribe({
+    this.api.putLivro(this.livroForm.value).subscribe({
       next: (res) => {
         this.livroForm.reset();
         this.dialogRef.close('atualizado');

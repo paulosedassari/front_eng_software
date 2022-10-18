@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -43,22 +43,26 @@ export class ApiService {
     return this.http.get<any>('http://localhost:8080/emprestimo/buscarTodos/');
   }
 
-  putLivro(data: any, id: number) {
+  putLivro(data: any) {
     return this.http.put<any>(
-      'http://localhost:3000/listaDeLivros/' + id,
+      'http://localhost:8080/acervo/alterar/',
       data
     );
   }
 
   putUsuario(data: any, id: number) {
     return this.http.put<any>(
-      'http://localhost:3000/listaDeLivros/' + id,
+      'http://localhost:8080/usuario/alterar/' + id,
       data
     );
   }
 
   deleteLivro(id: number) {
-    return this.http.delete<any>('http://localhost:3000/listaDeLivros/' + id);
+    return this.http.delete<any>('http://localhost:8080/acervo/deletar/' + id);
+  }
+
+  deleteUsuario(id: number) {
+    return this.http.delete<any>('http://localhost:8080/usuario/deletar/' + id);
   }
 
   consultaCep(cep: number) {

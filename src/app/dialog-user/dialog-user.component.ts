@@ -22,7 +22,7 @@ export class DialogUserComponent implements OnInit {
   // ra: string = '';
   // dataInclusao: Date = new Date();
 
-  nomeFormControl = new FormControl('', [Validators.required]);
+  nomeUsuarioFormControl = new FormControl('', [Validators.required]);
   cpfFormControl = new FormControl('', [Validators.required]);
   dtNascimentoFormControl = new FormControl('', [Validators.required]);
   emailFormControl = new FormControl('', [Validators.required]);
@@ -46,7 +46,7 @@ export class DialogUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuarioForm = this.formBuilder.group({
-      nome: new FormControl('', [Validators.required]),
+      nomeUsuario: new FormControl('', [Validators.required]),
       cpf: new FormControl('', [Validators.required]),
       dtNascimento: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
@@ -63,7 +63,7 @@ export class DialogUserComponent implements OnInit {
 
     if (this.editarDado) {
       this.acaoBotao = 'Salvar';
-      this.usuarioForm.controls['nome'].setValue(this.editarDado.nomeUsuario);
+      this.usuarioForm.controls['nomeUsuario'].setValue(this.editarDado.nomeUsuario);
       this.usuarioForm.controls['categoria'].setValue(
         this.editarDado.categoria
       );

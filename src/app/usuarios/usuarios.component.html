@@ -20,7 +20,7 @@
   </div>
 
   <div>
-    <h1>Tabela de Usuários</h1>
+    <h1>Usuários</h1>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 efeito">
       <ng-container matColumnDef="idUsuario">
         <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -61,7 +61,7 @@
           <button
             mat-icon-button
             color="warn"
-            (click)="openDialogDelete('0ms', '0ms', row.id)"
+            (click)="openDialogDelete('0ms', '0ms', row.idUsuario)"
           >
             <mat-icon>delete</mat-icon>
           </button>

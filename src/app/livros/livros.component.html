@@ -20,7 +20,7 @@
   </div>
 
   <div>
-    <h1>Tabela de Livros</h1>
+    <h1>Acervo</h1>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 efeito">
       <!-- Position Column -->
       <ng-container matColumnDef="idObra">
@@ -46,6 +46,12 @@
         <td mat-cell *matCellDef="let row">{{ row.dtInclusaoObra | date }}</td>
       </ng-container>
 
+      <!-- Weight Column -->
+      <ng-container matColumnDef="dtPublicacao">
+        <th mat-header-cell *matHeaderCellDef>Data Publicação</th>
+        <td mat-cell *matCellDef="let row">{{ row.dtPublicacao | date }}</td>
+      </ng-container>
+
       <!-- Symbol Column -->
       <ng-container matColumnDef="status">
         <th mat-header-cell *matHeaderCellDef>Situação</th>
@@ -66,7 +72,7 @@
           <button
             mat-icon-button
             color="warn"
-            (click)="openDialogDelete('0ms', '0ms', row.id)"
+            (click)="openDialogDelete('0ms', '0ms', row.idObra)"
           >
             <mat-icon>delete</mat-icon>
           </button>
