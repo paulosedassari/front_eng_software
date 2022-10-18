@@ -39,13 +39,17 @@ export class ApiService {
     return this.http.get<any>('http://localhost:8080/usuario/buscarTodos/');
   }
 
+  buscarUsuario(id: number) {
+    return this.http.get<any>('http://localhost:8080/usuario/buscarUsuario/' + id);
+  }
+
   getEmprestimos() {
     return this.http.get<any>('http://localhost:8080/emprestimo/buscarTodos/');
   }
 
-  putLivro(data: any) {
+  putLivro(data: any, id: number) {
     return this.http.put<any>(
-      'http://localhost:8080/acervo/alterar/',
+      'http://localhost:8080/acervo/alterar/' + id,
       data
     );
   }

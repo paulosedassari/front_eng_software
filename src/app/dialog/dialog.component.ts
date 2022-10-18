@@ -47,7 +47,6 @@ export class DialogComponent implements OnInit {
   adicionarLivro() {
     if (!this.editarDado) {
       if (this.livroForm.valid) {
-        console.log(this.livroForm.value)
         this.api.postLivro(this.livroForm.value).subscribe({
           next: (res) => {
             this.livroForm.reset();
@@ -63,7 +62,7 @@ export class DialogComponent implements OnInit {
   }
 
   updateLivro() {
-    this.api.putLivro(this.livroForm.value).subscribe({
+    this.api.putLivro(this.livroForm.value,  this.editarDado.idObra).subscribe({
       next: (res) => {
         this.livroForm.reset();
         this.dialogRef.close('atualizado');

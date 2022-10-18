@@ -42,7 +42,7 @@ export class DialogUserComponent implements OnInit {
     private dialogRef: MatDialogRef<DialogUserComponent>,
     @Inject(MAT_DIALOG_DATA) public editarDado: any,
     private api: ApiService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.usuarioForm = this.formBuilder.group({
@@ -58,16 +58,28 @@ export class DialogUserComponent implements OnInit {
       localidade: new FormControl('', [Validators.required]),
       bairro: new FormControl('', [Validators.required]),
       uf: new FormControl('', [Validators.required]),
-      numero: new FormControl('', [Validators.required]),
+      numLogradouro: new FormControl('', [Validators.required]),
     });
 
     if (this.editarDado) {
+      console.log("bate edita dados")
       this.acaoBotao = 'Salvar';
-      this.usuarioForm.controls['nomeUsuario'].setValue(this.editarDado.nomeUsuario);
-      this.usuarioForm.controls['categoria'].setValue(
-        this.editarDado.categoria
-      );
-      this.usuarioForm.controls['ra'].setValue(this.editarDado.ra);
+      this.api.buscarUsuario(this.editarDado.idUsuario).subscribe({
+        next: (res) => {
+          this.usuarioForm.controls['nomeUsuario'].setValue(res.nomeUsuario);
+          this.usuarioForm.controls['email'].setValue(res.email);
+          this.usuarioForm.controls['telefone'].setValue(res.telefone);
+          this.usuarioForm.controls['categoria'].setValue(
+            res.categoria
+          );
+          this.usuarioForm.controls['cep'].setValue(res.cep);
+          this.usuarioForm.controls['uf'].setValue(res.uf);
+          this.usuarioForm.controls['localidade'].setValue(res.localidade);
+          this.usuarioForm.controls['logradouro'].setValue(res.logradouro);
+          this.usuarioForm.controls['bairro'].setValue(res.bairro);
+          this.usuarioForm.controls['numLogradouro'].setValue(res.numero);
+        }
+      })
     }
   }
 
@@ -101,7 +113,8 @@ export class DialogUserComponent implements OnInit {
   }
 
   updateUsuario() {
-    this.api.putUsuario(this.usuarioForm.value, this.editarDado.id).subscribe({
+    console.log("bate aqui")
+    this.api.putUsuario(this.usuarioForm.value, this.editarDado.idUsuario).subscribe({
       next: (res) => {
         this.usuarioForm.reset();
         this.dialogRef.close('atualizado');
