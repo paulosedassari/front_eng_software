@@ -15,10 +15,7 @@ export class EmprestimoComponent implements OnInit {
   displayedColumns: String[] = [
     'idEmprestimo',
     'nomeUsuario',
-    'catUsuario',
     'nomeObra',
-    'editora',
-    'isbn',
     'dtEmprestimo',
     'dtDevolucao',
   ];
