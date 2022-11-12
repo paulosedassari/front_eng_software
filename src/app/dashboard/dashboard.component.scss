@@ -1,11 +1,18 @@
-.toolbar {
-  background-color: #9e2626 !important;
+.example-card {
+  max-width: 450px;
+  margin: 100px;
 }
 
-.toolbar_title a, button {
-  color: white;
+.example-header-image {
+  background-size: cover;
 }
 
-.example-spacer {
-  flex: 1 1 auto;
+.h1 {
+  font-size: 80px;
+  margin: 30px;
+}
+
+.size {
+  padding-bottom: 30px;
+  font-size: 20px;
 }

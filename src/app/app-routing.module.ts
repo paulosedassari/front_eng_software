@@ -5,6 +5,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { LivrosComponent } from './livros/livros.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { RelatoriosComponent } from './relatorios/relatorios.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'livros', component: LivrosComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'emprestimos', component: EmprestimoComponent },
+  { path: 'relatorios', component: RelatoriosComponent },
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './login/auth.service';
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -32,6 +32,12 @@ import { EmprestimoComponent } from './emprestimo/emprestimo.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 import { DialogEmprestComponent } from './dialog-emprest/dialog-emprest.component';
+import { DialogLoginComponent } from './dialog-login/dialog-login.component';
+import { RelatoriosComponent } from './relatorios/relatorios.component';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
@@ -47,6 +53,8 @@ import { DialogEmprestComponent } from './dialog-emprest/dialog-emprest.componen
     DashboardComponent,
     DialogDeleteComponent,
     DialogEmprestComponent,
+    DialogLoginComponent,
+    RelatoriosComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +77,8 @@ import { DialogEmprestComponent } from './dialog-emprest/dialog-emprest.componen
     MatSortModule,
     MatIconModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, { provide: LOCALE_ID, useValue: 'pt' }, { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' }
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

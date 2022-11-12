@@ -16,6 +16,7 @@ export class EmprestimoComponent implements OnInit {
     'idEmprestimo',
     'nomeUsuario',
     'nomeObra',
+    'isbn',
     'dtEmprestimo',
     'dtDevolucao',
   ];

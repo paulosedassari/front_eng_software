@@ -72,4 +72,10 @@ export class ApiService {
   consultaCep(cep: number) {
     return this.http.get<any>('https://viacep.com.br/ws/' + cep + '/json/');
   }
+
+  baixarPdf() {
+    let headers = new HttpHeaders();
+    headers = headers.set('Accept', 'application/pdf');
+    return this.http.get('http://localhost:8080/relatorios/emprestimos/', { headers: headers, responseType: 'blob' })
+  }
 }

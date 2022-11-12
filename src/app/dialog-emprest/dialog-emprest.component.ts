@@ -15,7 +15,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DialogEmprestComponent implements OnInit {
   emprestimoForm!: FormGroup;
-  acaoBotao: string = 'Adicionar';
+  acaoBotao: string = 'Associar';
 
   raFormControl = new FormControl('', [Validators.required]);
   isbnFormControl = new FormControl('', [Validators.required]);

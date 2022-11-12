@@ -2,6 +2,8 @@ import { Usuario } from './usuario';
 import { AuthService } from './auth.service';
 import { SidenavComponent } from './../sidenav/sidenav.component';
 import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogLoginComponent } from '../dialog-login/dialog-login.component';
 
 @Component({
   selector: 'app-login',
@@ -30,4 +32,6 @@ export class LoginComponent implements OnInit {
     }
     return styleClass;
   }
+
+  
 }

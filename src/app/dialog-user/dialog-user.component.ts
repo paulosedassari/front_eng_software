@@ -64,32 +64,25 @@ export class DialogUserComponent implements OnInit {
     if (this.editarDado) {
       console.log("bate edita dados")
       this.acaoBotao = 'Salvar';
-      this.api.buscarUsuario(this.editarDado.idUsuario).subscribe({
-        next: (res) => {
-          this.usuarioForm.controls['nomeUsuario'].setValue(res.nomeUsuario);
-          this.usuarioForm.controls['email'].setValue(res.email);
-          this.usuarioForm.controls['telefone'].setValue(res.telefone);
-          this.usuarioForm.controls['categoria'].setValue(
-            res.categoria
-          );
-          this.usuarioForm.controls['cep'].setValue(res.cep);
-          this.usuarioForm.controls['uf'].setValue(res.uf);
-          this.usuarioForm.controls['localidade'].setValue(res.localidade);
-          this.usuarioForm.controls['logradouro'].setValue(res.logradouro);
-          this.usuarioForm.controls['bairro'].setValue(res.bairro);
-          this.usuarioForm.controls['numLogradouro'].setValue(res.numero);
-        }
-      })
+      console.log(this.editarDado)
+      this.usuarioForm.controls['nomeUsuario'].setValue(this.editarDado.nomeUsuario);
+      this.usuarioForm.controls['categoria'].setValue(
+        this.editarDado.categoria
+      );
+      this.usuarioForm.controls['ra'].setValue(this.editarDado.ra);
+
     }
   }
 
   buscaCep() {
     this.api.consultaCep(this.usuarioForm.value.cep).subscribe({
       next: (res) => {
-        this.logradouro = res.logradouro;
-        this.bairro = res.bairro;
-        this.localidade = res.localidade;
-        this.uf = res.uf;
+        this.usuarioForm.patchValue({
+          logradouro: res.logradouro,
+          bairro: res.bairro,
+          localidade: res.localidade,
+          uf: res.uf
+        })
       },
     });
   }

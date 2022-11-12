@@ -1,108 +1,19 @@
-<!-- <nav class="navbar navbar-expand-lg bg-light toolbar">
-  <div class="container-fluid toolbar_title" >
-    <a class="navbar-brand" href="#">Biblioteca Fatec</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active hover" aria-current="page" href="#" [routerLink]="'/livros'" routerLinkActive="active">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/livros'" routerLinkActive="active">Livros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" [routerLink]="'/usuarios'" routerLinkActive="active">Usuários</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" [routerLink]="'/emprestimos'" routerLinkActive="active">Empréstimos</a>
-        </li>
-      </ul>
-    </div>
+<section class="container">
+  <div>
+    <mat-card class="example-card">
+      <mat-card-title-group>
+        <mat-card-title class="size">Total de obras no Acervo</mat-card-title>
+        <mat-card-subtitle class="h1">100</mat-card-subtitle>
+        <img mat-card-lg-image src="../../assets/img/livros.jpg">
+      </mat-card-title-group>
+
+      <mat-card-content>
+        <!-- 100 -->
+      </mat-card-content>
+    </mat-card>
   </div>
-</nav> -->
-<!-- <div class="container">
-  <h1>Bem-vindo(a) à Biblioteca Fatec Ourinhos</h1>
-  <img
-    src="../../assets/img/library-animate_login.svg"
-    class="right-login-image"
-    alt="Animação Pessoas lendo livros"
-  />
-</div> -->
-<nav class="navbar navbar-dark bg-dark fixed-top toolbar">
-  <div class="container-fluid toolbar">
-    <a class="navbar-brand" [routerLink]="'/livros'">Biblioteca Fatec Ourinhos</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasDarkNavbar"
-      aria-controls="offcanvasDarkNavbar"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div
-      class="offcanvas offcanvas-end text-bg-dark toolbar"
-      tabindex="-1"
-      id="offcanvasDarkNavbar"
-      aria-labelledby="offcanvasDarkNavbarLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
-        <button
-          type="button"
-          class="btn-close btn-close-white"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              [routerLink]="'/livros'"
-              >Livros</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              [routerLink]="'/usuarios'"
-              >Usuários</a
-            >
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              [routerLink]="'/emprestimos'"
-            >
-              Empréstimos
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
+
+  <div>
+    <button (click)="baixarPdf()">Baixar Relatório</button>
   </div>
-</nav>
+</section>

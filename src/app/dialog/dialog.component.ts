@@ -13,7 +13,7 @@ export class DialogComponent implements OnInit {
   nomeFormControl = new FormControl('', [Validators.required]);
   editoraFormControl = new FormControl('', [Validators.required]);
   dtPublicacaoFormControl = new FormControl('', [Validators.required]);
-  statusFormControl = new FormControl('', [Validators.required]);
+  // statusFormControl = new FormControl('', [Validators.required]);
   isbnFormControl = new FormControl('', [Validators.required]);
 
   livroForm!: FormGroup;
@@ -30,7 +30,7 @@ export class DialogComponent implements OnInit {
       nomeObra: ['', Validators.required],
       editora: ['', Validators.required],
       dtPublicacao: new FormControl('', [Validators.required]),
-      status: ['', Validators.required],
+      // status: ['', Validators.required],
       isbn: ['', Validators.required],
     });
 
@@ -39,7 +39,7 @@ export class DialogComponent implements OnInit {
       this.livroForm.controls['nomeObra'].setValue(this.editarDado.nomeObra);
       this.livroForm.controls['editora'].setValue(this.editarDado.editora);
       this.livroForm.controls['dtPublicacao'].setValue(this.editarDado.dtPublicacao);
-      this.livroForm.controls['status'].setValue(this.editarDado.status);
+      // this.livroForm.controls['status'].setValue(this.editarDado.status);
       this.livroForm.controls['isbn'].setValue(this.editarDado.isbn);
     }
   }
@@ -47,6 +47,7 @@ export class DialogComponent implements OnInit {
   adicionarLivro() {
     if (!this.editarDado) {
       if (this.livroForm.valid) {
+        this.livroForm.value.status = 'DISPONIVEL';
         this.api.postLivro(this.livroForm.value).subscribe({
           next: (res) => {
             this.livroForm.reset();
