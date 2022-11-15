@@ -78,4 +78,10 @@ export class ApiService {
     headers = headers.set('Accept', 'application/pdf');
     return this.http.get('http://localhost:8080/relatorios/emprestimos/', { headers: headers, responseType: 'blob' })
   }
+
+  relatorioEmprestimo(pData: Date, sData: Date) {
+    let headers = new HttpHeaders();
+    headers = headers.set('Accept', 'application/pdf');
+    return this.http.get('http://localhost:8080/relatorios/download/emprestimo/pData=' + pData + '/sData=' + sData, { headers: headers, responseType: 'blob' })
+  }
 }
