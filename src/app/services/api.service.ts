@@ -79,7 +79,38 @@ export class ApiService {
     return this.http.get('http://localhost:8080/relatorios/emprestimos/', { headers: headers, responseType: 'blob' })
   }
 
-  relatorioEmprestimo(pData: Date, sData: Date) {
+  baixarPdfRelatAcervoPorData(pData: Date, sData: Date) {
+    let headers = new HttpHeaders();
+    headers = headers.set('Accept', 'application/pdf');
+    return this.http.get('http://localhost:8080/relatorios/download/pdf/acervo/pData=' + pData + '/sData=' + sData, { headers: headers, responseType: 'blob' })
+  }
+
+  baixarPdfRelatUserPorData(pData: Date, sData: Date) {
+    let headers = new HttpHeaders();
+    headers = headers.set('Accept', 'application/pdf');
+    return this.http.get('http://localhost:8080/relatorios/download/pdf/usuario/pData=' + pData + '/sData=' + sData, { headers: headers, responseType: 'blob' })
+  }
+
+  baixarPdfRelatEmprestPorData(pData: Date, sData: Date) {
+    let headers = new HttpHeaders();
+    headers = headers.set('Accept', 'application/pdf');
+    return this.http.get('http://localhost:8080/relatorios/download/pdf/emprestimo/pData=' + pData + '/sData=' + sData, { headers: headers, responseType: 'blob' })
+  }
+
+  baixarXLSXRelatAcervoPorData(pData: Date, sData: Date) {
+    return this.http.get('http://localhost:8080/relatorios/download/xlsx/acervo/pData=' + pData + '/sData=' + sData, { responseType: 'blob' })
+  }
+
+  baixarXLSXRelatUserPorData(pData: Date, sData: Date) {
+    return this.http.get('http://localhost:8080/relatorios/download/xlsx/usuario/pData=' + pData + '/sData=' + sData, { responseType: 'blob' })
+  }
+
+  baixarXLSXRelatEmprestPorData(pData: Date, sData: Date) {
+    return this.http.get('http://localhost:8080/relatorios/download/xlsx/emprestimo/pData=' + pData + '/sData=' + sData, { responseType: 'blob' })
+  }
+
+
+  baixarXLSX(pData: Date, sData: Date) {
     let headers = new HttpHeaders();
     headers = headers.set('Accept', 'application/pdf');
     return this.http.get('http://localhost:8080/relatorios/download/emprestimo/pData=' + pData + '/sData=' + sData, { headers: headers, responseType: 'blob' })

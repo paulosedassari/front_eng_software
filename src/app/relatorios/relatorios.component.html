@@ -1,29 +1,197 @@
-<section class="main">
-  <mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Relatório Empréstimo
-        </mat-panel-title>
-        <mat-panel-description>
-          Clique aqui para Informar o intervalo entre as datas
-          <mat-icon>date_range</mat-icon>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+<section class="section">
+  <mat-card class="primeiro_card">
+    <mat-card-title>Download PDF</mat-card-title>
+    <div class="main">
 
-      <mat-form-field appearance="fill">
-        <mat-label>Enter a date range</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-          <input [(ngModel)]="pData" matStartDate>
-          <input [(ngModel)]="sData" matEndDate>
-        </mat-date-range-input>
-        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-      </mat-form-field>
-      <button type="submit" mat-raised-button class="botao_add_livro" color="warn" (click)="exibe()">
-        Download
-      </button>
-    </mat-expansion-panel>
-  </mat-accordion>
+      <div class="relatorio_acervo">
+        <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Relatório Acervo
+              </mat-panel-title>
+              <mat-panel-description>
+                Clique aqui para Informar o intervalo entre as datas
+                <mat-icon>date_range</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Selecione as Datas</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input [(ngModel)]="pData" matStartDate>
+                <input [(ngModel)]="sData" matEndDate>
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <button type="submit" mat-raised-button class="botao_add_livro" color="warn" (click)="baixarPDFAcervo()">
+              Baixar Relatório
+            </button>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+
+      <div class="relatorio_usuario">
+        <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Relatório Usuários
+              </mat-panel-title>
+              <mat-panel-description>
+                Clique aqui para Informar o intervalo entre as datas
+                <mat-icon>date_range</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Selecione as Datas</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input [(ngModel)]="pData" matStartDate>
+                <input [(ngModel)]="sData" matEndDate>
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <button type="submit" mat-raised-button class="botao_add_livro" color="warn" (click)="baixarPDFUsuarios()">
+              Baixar Relatório
+            </button>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+
+      <div class="relatorio_emprestimo">
+        <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Relatório Empréstimo
+              </mat-panel-title>
+              <mat-panel-description>
+                Clique aqui para Informar o intervalo entre as datas
+                <mat-icon>date_range</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Selecione as Datas</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input [(ngModel)]="pData" matStartDate>
+                <input [(ngModel)]="sData" matEndDate>
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <button type="submit" mat-raised-button class="botao_add_livro" color="warn" (click)="baixarPDFEmprestimo()">
+              Baixar Relatório
+            </button>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+
+    </div>
+  </mat-card>
+
+
+
+  <mat-card class="segundo_card">
+    <mat-card-title>Download XLSX</mat-card-title>
+    <div class="main">
+
+      <div class="relatorio_acervo">
+        <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Relatório Acervo
+              </mat-panel-title>
+              <mat-panel-description>
+                Clique aqui para Informar o intervalo entre as datas
+                <mat-icon>date_range</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Selecione as Datas</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input [(ngModel)]="pData" matStartDate>
+                <input [(ngModel)]="sData" matEndDate>
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <button type="submit" mat-raised-button class="botao_add_livro" color="warn" (click)="baixarXLSXAcervo()">
+              Baixar Relatório
+            </button>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+
+      <div class="relatorio_usuario">
+        <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Relatório Usuários
+              </mat-panel-title>
+              <mat-panel-description>
+                Clique aqui para Informar o intervalo entre as datas
+                <mat-icon>date_range</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Selecione as Datas</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input [(ngModel)]="pData" matStartDate>
+                <input [(ngModel)]="sData" matEndDate>
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <button type="submit" mat-raised-button class="botao_add_livro" color="warn" (click)="baixarXLSXUsuarios">
+              Baixar Relatório
+            </button>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+
+      <div class="relatorio_emprestimo">
+        <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Relatório Empréstimo
+              </mat-panel-title>
+              <mat-panel-description>
+                Clique aqui para Informar o intervalo entre as datas
+                <mat-icon>date_range</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Selecione as Datas</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input [(ngModel)]="pData" matStartDate>
+                <input [(ngModel)]="sData" matEndDate>
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <button type="submit" mat-raised-button class="botao_add_livro" color="warn" (click)="baixarXLSXEmprestimo()">
+              Baixar Relatório
+            </button>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+
+    </div>
+  </mat-card>
 </section>

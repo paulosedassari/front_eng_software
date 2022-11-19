@@ -36,7 +36,9 @@ import { DialogLoginComponent } from './dialog-login/dialog-login.component';
 import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { registerLocaleData } from '@angular/common';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRippleModule} from '@angular/material/core';
 import localePt from '@angular/common/locales/pt';
+import { AuthGuard } from './guards/auth.guard';
 
 registerLocaleData(localePt, 'pt');
 
@@ -77,9 +79,10 @@ registerLocaleData(localePt, 'pt');
     HttpClientModule,
     MatSortModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatRippleModule
   ],
-  providers: [AuthService, { provide: LOCALE_ID, useValue: 'pt' }, { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' }
+  providers: [AuthService, AuthGuard, { provide: LOCALE_ID, useValue: 'pt' }, { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' }
   ],
   bootstrap: [AppComponent],
 })

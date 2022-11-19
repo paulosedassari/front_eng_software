@@ -1,19 +1,25 @@
 <section class="container">
-  <div>
-    <mat-card class="example-card">
-      <mat-card-title-group>
-        <mat-card-title class="size">Total de obras no Acervo</mat-card-title>
-        <mat-card-subtitle class="h1">100</mat-card-subtitle>
-        <img mat-card-lg-image src="../../assets/img/livros.jpg">
-      </mat-card-title-group>
-
-      <mat-card-content>
-        <!-- 100 -->
-      </mat-card-content>
-    </mat-card>
+  <div class="example-ripple-container mat-elevation-z4" matRipple [matRippleCentered]="centered"
+    [matRippleDisabled]="disabled" [matRippleUnbounded]="unbounded" [matRippleRadius]="radius" [matRippleColor]="color"
+    (click)="acervo()">
+    Acervo
   </div>
 
-  <div>
-    <button (click)="baixarPdf()">Baixar Relatório</button>
+  <div class="example-ripple-container mat-elevation-z4" matRipple [matRippleCentered]="centered"
+    [matRippleDisabled]="disabled" [matRippleUnbounded]="unbounded" [matRippleRadius]="radius" [matRippleColor]="color"
+    (click)="usuario()">
+    Usuários
+  </div>
+
+  <div class="example-ripple-container mat-elevation-z4" matRipple [matRippleCentered]="centered"
+    [matRippleDisabled]="disabled" [matRippleUnbounded]="unbounded" [matRippleRadius]="radius" [matRippleColor]="color"
+    (click)="emprestimo()">
+    Empréstimos
+  </div>
+
+  <div class="example-ripple-container mat-elevation-z4" matRipple [matRippleCentered]="centered"
+    [matRippleDisabled]="disabled" [matRippleUnbounded]="unbounded" [matRippleRadius]="radius" [matRippleColor]="color"
+    (click)="relatorio()">
+    Relatórios
   </div>
 </section>

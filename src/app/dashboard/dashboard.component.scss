@@ -16,3 +16,38 @@
   padding-bottom: 30px;
   font-size: 20px;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+
+.example-ripple-container {
+  cursor: pointer;
+  text-align: center;
+
+  font-size: 20px;
+  color: white;
+  background-color: #9e2626;
+
+  border-radius: 7px;
+
+  margin: 10px;
+
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.example-ripple-container:hover {
+  background-color: #a60d0d;
+}
