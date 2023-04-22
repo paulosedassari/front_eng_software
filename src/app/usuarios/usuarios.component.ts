@@ -58,7 +58,6 @@ export class UsuariosComponent implements OnInit {
   getAllUsuarios() {
     this.api.getUsuarios().subscribe({
       next: (res) => {
-        console.log(res)
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

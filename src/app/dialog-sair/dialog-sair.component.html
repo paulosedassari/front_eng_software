@@ -1,0 +1,11 @@
+<div>
+    <h1 mat-dialog-title>Sair do Sistema</h1>
+    <div mat-dialog-content>Certeza que deseja sair?</div>
+    <div mat-dialog-actions>
+        <button mat-button mat-raised-button color="warn" cdkFocusInitial [mat-dialog-close]="false"
+            mat-dialog-close>Não</button>
+        <button mat-raised-button [mat-dialog-close]="true" >
+            Sim
+        </button>
+    </div>
+</div>

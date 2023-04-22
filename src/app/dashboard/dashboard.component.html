@@ -1,4 +1,9 @@
+<div class="sair">
+  <button mat-stroked-button color="warn" (click)="dialogSair('0ms', '0ms')">Sair <i class="fal fa-arrow-right"></i></button>
+</div>
+
 <section class="container">
+
   <div class="example-ripple-container mat-elevation-z4" matRipple [matRippleCentered]="centered"
     [matRippleDisabled]="disabled" [matRippleUnbounded]="unbounded" [matRippleRadius]="radius" [matRippleColor]="color"
     (click)="acervo()">
@@ -22,4 +27,5 @@
     (click)="relatorio()">
     Relatórios
   </div>
+
 </section>

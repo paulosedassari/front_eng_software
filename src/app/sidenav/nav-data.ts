@@ -24,10 +24,5 @@ export const navbarData = [
     icon: 'fal fa-file-export',
     label: 'Relatórios',
   },
-  {
-    routeLink: 'sair',
-    icon: 'fal fa-arrow-right',
-    label: 'Sair',
-  },
 
 ];

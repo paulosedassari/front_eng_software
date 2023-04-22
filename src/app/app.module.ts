@@ -39,6 +39,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRippleModule} from '@angular/material/core';
 import localePt from '@angular/common/locales/pt';
 import { AuthGuard } from './guards/auth.guard';
+import { DialogDesassociaComponent } from './dialog-desassocia/dialog-desassocia.component';
+import { SairComponent } from './sair/sair.component';
+import { DialogSairComponent } from './dialog-sair/dialog-sair.component';
+import { DialogNegaEmprestComponent } from './dialog-nega-emprest/dialog-nega-emprest.component';
+import { DialogNegaExclusaoComponent } from './dialog-nega-exclusao/dialog-nega-exclusao.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -58,6 +63,11 @@ registerLocaleData(localePt, 'pt');
     DialogEmprestComponent,
     DialogLoginComponent,
     RelatoriosComponent,
+    DialogDesassociaComponent,
+    SairComponent,
+    DialogSairComponent,
+    DialogNegaEmprestComponent,
+    DialogNegaExclusaoComponent,
   ],
   imports: [
     BrowserModule,

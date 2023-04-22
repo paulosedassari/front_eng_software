@@ -6,7 +6,8 @@ import {
   FormControl,
 } from '@angular/forms';
 import { ApiService } from '../services/api.service';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogNegaEmprestComponent } from '../dialog-nega-emprest/dialog-nega-emprest.component';
 
 @Component({
   selector: 'app-dialog-emprest',
@@ -24,8 +25,9 @@ export class DialogEmprestComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<DialogEmprestComponent>,
     @Inject(MAT_DIALOG_DATA) public editarDado: any,
-    private api: ApiService
-  ) {}
+    private api: ApiService,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.emprestimoForm = this.formBuilder.group({
@@ -43,9 +45,14 @@ export class DialogEmprestComponent implements OnInit {
   adicionarEmprestimo() {
     if (!this.editarDado) {
       if (this.emprestimoForm.valid) {
-        console.log(this.emprestimoForm.value);
         this.api.postEmprestimo(this.emprestimoForm.value).subscribe({
           next: (res) => {
+            if (res === false) {
+              this.dialog
+                .open(DialogNegaEmprestComponent, {
+                  width: '25%',
+                });
+            }
             this.emprestimoForm.reset();
             this.dialogRef.close('adicionado');
           },

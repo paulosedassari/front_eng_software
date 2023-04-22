@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from '../services/api.service';
+import { DialogDesassociaComponent } from '../dialog-desassocia/dialog-desassocia.component';
 
 @Component({
   selector: 'app-emprestimo',
@@ -19,13 +20,14 @@ export class EmprestimoComponent implements OnInit {
     'isbn',
     'dtEmprestimo',
     'dtDevolucao',
+    'action'
   ];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private api: ApiService) {}
+  constructor(private dialog: MatDialog, private api: ApiService) { }
 
   ngOnInit(): void {
     this.getAllEmprestimos();
@@ -61,5 +63,30 @@ export class EmprestimoComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  dialogDesassociarEmprest(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string,
+    id: number
+  ) {
+    const dialogref = this.dialog.open(DialogDesassociaComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+    dialogref.afterClosed().subscribe((result) => {
+      if (result === true) {
+        this.desassociarObra(id);
+      }
+    });
+  }
+
+  desassociarObra(id: number) {
+    this.api.desassociarObra(id).subscribe({
+      next: (res) => {
+        this.getAllEmprestimos();
+      },
+    });
   }
 }

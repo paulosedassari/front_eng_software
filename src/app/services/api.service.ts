@@ -69,6 +69,10 @@ export class ApiService {
     return this.http.delete<any>('http://localhost:8080/usuario/deletar/' + id);
   }
 
+  desassociarObra(id: number) {
+    return this.http.get<any>('http://localhost:8080/emprestimo/desassociar/' + id);
+  }
+
   consultaCep(cep: number) {
     return this.http.get<any>('https://viacep.com.br/ws/' + cep + '/json/');
   }

@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component';
+import { DialogNegaExclusaoComponent } from '../dialog-nega-exclusao/dialog-nega-exclusao.component';
 
 @Component({
   selector: 'app-livros',
@@ -74,9 +75,14 @@ export class LivrosComponent implements OnInit {
   }
 
   deletarLivro(id: number) {
-    console.log(id)
     this.api.deleteLivro(id).subscribe({
       next: (res) => {
+        if (res == false) {
+          this.dialog
+            .open(DialogNegaExclusaoComponent, {
+              width: '30%',
+            });
+        }
         this.getAllLivros();
       },
     });
@@ -97,11 +103,10 @@ export class LivrosComponent implements OnInit {
     id: number
   ): void {
     const dialogref = this.dialog.open(DialogDeleteComponent, {
-      width: '250px',
+      width: '300px',
       enterAnimationDuration,
       exitAnimationDuration,
     });
-    console.log(id)
     dialogref.afterClosed().subscribe((result) => {
       if (result === true) {
         this.deletarLivro(id);

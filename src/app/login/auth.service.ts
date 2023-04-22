@@ -15,7 +15,7 @@ export class AuthService {
   constructor(private dialog: MatDialog, private router: Router) { }
 
   @Output() onToggleSidenav: EventEmitter<SidenavToggle> = new EventEmitter();
-  usuarioAutenticado = true;
+  usuarioAutenticado: boolean = true;
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
   esconderLoginEmitter = new EventEmitter<boolean>();
@@ -37,6 +37,13 @@ export class AuthService {
       this.usuarioAutenticado = false;
       this.mostrarMenuEmitter.emit(false);
     }
+  }
+
+  deslogar() {
+    this.usuarioAutenticado = false;
+    this.mostrarMenuEmitter.emit(false);
+    this.esconderLoginEmitter.emit(true);
+    this.router.navigate(['/login']);
   }
 
   usuarioEstaAutenticado() {

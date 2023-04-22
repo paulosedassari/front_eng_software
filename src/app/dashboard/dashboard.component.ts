@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DialogSairComponent } from '../dialog-sair/dialog-sair.component';
+import { AuthGuard } from '../guards/auth.guard';
+import { AuthService } from '../login/auth.service';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -9,7 +13,7 @@ import { ApiService } from '../services/api.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(private dialog: MatDialog, private api: ApiService, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -60,6 +64,23 @@ export class DashboardComponent implements OnInit {
 
   relatorio() {
     this.router.navigate(['/relatorios']);
+  }
+
+  dialogSair(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ) {
+    const dialogref = this.dialog.open(DialogSairComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+    dialogref.afterClosed().subscribe((result) => {
+      // this.router.navigate(['/login'])
+      if (result === true) {
+        this.authService.deslogar();
+      }
+    });
   }
 
 }

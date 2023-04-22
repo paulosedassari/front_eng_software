@@ -70,7 +70,16 @@ export class DialogUserComponent implements OnInit {
         this.editarDado.categoria
       );
       this.usuarioForm.controls['ra'].setValue(this.editarDado.ra);
-
+      this.usuarioForm.controls['email'].setValue(this.editarDado.email);
+      this.usuarioForm.controls['cpf'].setValue(this.editarDado.cpf);
+      this.usuarioForm.controls['dtNascimento'].setValue(this.editarDado.dtNascimento);
+      this.usuarioForm.controls['telefone'].setValue(this.editarDado.telefone);
+      this.usuarioForm.controls['cep'].setValue(this.editarDado.cep);
+      this.usuarioForm.controls['logradouro'].setValue(this.editarDado.logradouro);
+      this.usuarioForm.controls['localidade'].setValue(this.editarDado.localidade);
+      this.usuarioForm.controls['bairro'].setValue(this.editarDado.bairro);
+      this.usuarioForm.controls['uf'].setValue(this.editarDado.uf);
+      this.usuarioForm.controls['numLogradouro'].setValue(this.editarDado.numLogradouro);
     }
   }
 
@@ -99,19 +108,20 @@ export class DialogUserComponent implements OnInit {
 
         this.usuarioForm.reset();
         this.dialogRef.close();
-      } else {
-        this.updateUsuario();
       }
+    } else {
+      this.updateUsuario();
     }
   }
 
   updateUsuario() {
     console.log("bate aqui")
-    this.api.putUsuario(this.usuarioForm.value, this.editarDado.idUsuario).subscribe({
-      next: (res) => {
-        this.usuarioForm.reset();
-        this.dialogRef.close('atualizado');
-      },
-    });
+    this.api.putUsuario(this.usuarioForm.value, this.editarDado.idUsuario).
+      subscribe({
+        next: (res) => {
+          this.usuarioForm.reset();
+          this.dialogRef.close('atualizado');
+        },
+      });
   }
 }
